@@ -1,8 +1,7 @@
 {
   "name": "ReverseExtension",
-  "version": "0.1.0",
-  "summary": "A short description of ReverseExtension.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.2.0",
+  "summary": "UITableView extension that enabled to insert cell from bottom of tableView.",
   "homepage": "https://github.com/marty-suzuki/ReverseExtension",
   "license": {
     "type": "MIT",
@@ -13,8 +12,9 @@
   },
   "source": {
     "git": "https://github.com/marty-suzuki/ReverseExtension.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
+  "social_media_url": "https://twitter.com/marty_suzuki",
   "platforms": {
     "ios": "8.0"
   },

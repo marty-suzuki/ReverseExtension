@@ -13,13 +13,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var numbers: [Int] = []
+    fileprivate var messages: [MessageModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         tableView.re.delegate = self
         tableView.re.scrollViewDidReachTop = { scrollView in
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
         tableView.re.scrollViewDidReachBottom = { scrollView in
             print("scrollViewDidReachBottom")
         }
+        tableView.estimatedRowHeight = 56
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,13 +39,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        let next: Int
-        if let first = numbers.first {
-            next = first + 1
-        } else {
-            next = 1
-        }
-        numbers.insert(next, at: 0)
+        messages.insert(MessageModel(), at: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.endUpdates()
@@ -51,12 +48,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbers.count
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(numbers[indexPath.row])"
+        (cell as? TableViewCell)?.configure(with: messages[indexPath.row])
         return cell
     }
 }

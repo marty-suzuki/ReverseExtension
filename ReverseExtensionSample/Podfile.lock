@@ -1,5 +1,5 @@
 PODS:
-  - ReverseExtension (0.1.0)
+  - ReverseExtension (0.2.0)
 
 DEPENDENCIES:
   - ReverseExtension (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ReverseExtension: afba2927ad8bf27ca4de3e99940fed760d6db0ee
+  ReverseExtension: 809a26ac8c65668a669c4122f18926a73cf112fd
 
 PODFILE CHECKSUM: 0ac604249dba8814da4048f8c8137a8ea2046e76
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1

@@ -85,7 +85,9 @@ extension UITableView {
         private var mutex = pthread_mutex_t()
         
         deinit {
-            base?.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
+            try? ExceptionHandler.catchException {
+                base?.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
+            }
             pthread_mutex_destroy(&mutex)
         }
         

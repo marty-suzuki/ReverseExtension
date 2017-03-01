@@ -7,69 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F8498FEF7B55CE7C9E3B06FDD672633 /* ReverseExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7370D6EB4D3FC7C1AFC5154695C09810 /* ReverseExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C9A58747E1C877E31BEA13B94EDF737 /* DelegateTransporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEE8F4BBF12FCF1CCC09D3104B280F /* DelegateTransporter.m */; };
-		8A54A630EACFA532CA9B9E5A755B520F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		9D17DB6E1E66A00900282636 /* UITableViewDelegateTransporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17DB6D1E66A00900282636 /* UITableViewDelegateTransporter.swift */; };
-		9E1DA44CFE30E7BC23B34C6A8696B647 /* ReverseExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D196D8442A758B1B5E264B8EF6D3E520 /* ReverseExtension-dummy.m */; };
-		BDE6C394F0D027AC82DD9F334BA2FADE /* ReverseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380A81A73FDD800D70B9608C6C7AE1D5 /* ReverseExtension.swift */; };
-		CB1AEE7F01A85810DD18A3E24A1B37EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		D4D49BC28D28313C54457F0AE535FF92 /* DelegateTransporter.h in Headers */ = {isa = PBXBuildFile; fileRef = A30B63A0901769CDF35E36FB1D572448 /* DelegateTransporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7DFE39FF85D640F31E286C5FADE1AA8 /* Pods-ReverseExtensionSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 403D320F6131C869FD860C6496158ABB /* Pods-ReverseExtensionSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8A9A6B5E0275D7E634751A52B6AFA52 /* Pods-ReverseExtensionSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9019870BF49AC74A63427472526D06 /* Pods-ReverseExtensionSample-dummy.m */; };
+		2B53E01BB00B2974C2EA046699B85350 /* DelegateTransporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3462488C1DD06A02953F18FF6A7954E8 /* DelegateTransporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		335DDE4A7A2B87D1DA8706EE07EA69DF /* ReverseExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C3E61B4725CFE4F49AAE15C961EE4C1 /* ReverseExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		481DEC930CF9D4B423488053F1738C94 /* Pods-ReverseExtensionSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9019870BF49AC74A63427472526D06 /* Pods-ReverseExtensionSample-dummy.m */; };
+		51CC1C38870497F0B076F896C7C88AF9 /* ExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E0C2E5690898DE57053E26D6BB1F25E6 /* ExceptionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58D09B882DE9BAE943510382A9103ADC /* ReverseExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9366C77865B3BF8C04267B63B7628A /* ReverseExtension-dummy.m */; };
+		5F446C7395E210F34F6794F98CB24709 /* ExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8F18508F59DE9F8133026CB706B000 /* ExceptionHandler.m */; };
+		7F0D9BA3069C4983776472EE4AA28557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		8F81E667B10DFBC9E1242E4ED075B4A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		993E34542EB07D89A1D61D867F6291BB /* Pods-ReverseExtensionSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 403D320F6131C869FD860C6496158ABB /* Pods-ReverseExtensionSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8B785DA70BB88D6EFDD2D338FA9A989 /* UITableViewDelegateTransporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3666883D31CC38FE8CE76F49AFA7785D /* UITableViewDelegateTransporter.swift */; };
+		BFBFD9973BB5003640B4C497D2941F0C /* DelegateTransporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E131CF53F91FD39AD36B1656DF0728 /* DelegateTransporter.m */; };
+		EB7698ECF1ABF8F5E0FA26C609C38909 /* ReverseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B5182A220A9934F98BA11BE4E1D57 /* ReverseExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A21BA7A6D5E0923539D1308B5CFBA2EA /* PBXContainerItemProxy */ = {
+		FF2DEEE170FB55B20E273F6DF7A8DFBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D56BA7E361B5F18EF855C8F75EAD005D;
+			remoteGlobalIDString = 9C357DDC4DC130FBD7A1E0BAC998DC88;
 			remoteInfo = ReverseExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		071EDA9C78E2C98D90FAEF6B605BFC13 /* Pods-ReverseExtensionSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseExtensionSample.debug.xcconfig"; sourceTree = "<group>"; };
+		1C3E61B4725CFE4F49AAE15C961EE4C1 /* ReverseExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-umbrella.h"; sourceTree = "<group>"; };
 		24759A2DC389574D3E21417601F83B9E /* Pods-ReverseExtensionSample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReverseExtensionSample-resources.sh"; sourceTree = "<group>"; };
 		27DCF57B135D2F007F122F0D72D43F8D /* Pods-ReverseExtensionSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReverseExtensionSample-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2DDC34FF687B78B177B07CB1B4BB7FEF /* Pods-ReverseExtensionSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReverseExtensionSample-acknowledgements.plist"; sourceTree = "<group>"; };
-		380A81A73FDD800D70B9608C6C7AE1D5 /* ReverseExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReverseExtension.swift; sourceTree = "<group>"; };
+		3462488C1DD06A02953F18FF6A7954E8 /* DelegateTransporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DelegateTransporter.h; sourceTree = "<group>"; };
+		3666883D31CC38FE8CE76F49AFA7785D /* UITableViewDelegateTransporter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UITableViewDelegateTransporter.swift; sourceTree = "<group>"; };
+		38715556038A29D36D0223E5DCD34287 /* ReverseExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-prefix.pch"; sourceTree = "<group>"; };
 		403D320F6131C869FD860C6496158ABB /* Pods-ReverseExtensionSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseExtensionSample-umbrella.h"; sourceTree = "<group>"; };
 		4D4419E51BA0C8D584840C76C5F5BD93 /* Pods-ReverseExtensionSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReverseExtensionSample-frameworks.sh"; sourceTree = "<group>"; };
-		6931D18D1ECF20CFC30324F6612D124A /* ReverseExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ReverseExtension.modulemap; sourceTree = "<group>"; };
+		686C113CC55FA6CC94AF984F95AA6A33 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E358887ECE71E51D483EB16BE5D542C /* Pods-ReverseExtensionSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseExtensionSample.release.xcconfig"; sourceTree = "<group>"; };
-		7370D6EB4D3FC7C1AFC5154695C09810 /* ReverseExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-umbrella.h"; sourceTree = "<group>"; };
-		7D66DC36625FD3BDA45F6B6B30E90522 /* ReverseExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.xcconfig; sourceTree = "<group>"; };
-		8CAEE8F4BBF12FCF1CCC09D3104B280F /* DelegateTransporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DelegateTransporter.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A2B5182A220A9934F98BA11BE4E1D57 /* ReverseExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReverseExtension.swift; sourceTree = "<group>"; };
 		9B9019870BF49AC74A63427472526D06 /* Pods-ReverseExtensionSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseExtensionSample-dummy.m"; sourceTree = "<group>"; };
-		9D17DB6D1E66A00900282636 /* UITableViewDelegateTransporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewDelegateTransporter.swift; sourceTree = "<group>"; };
-		A30B63A0901769CDF35E36FB1D572448 /* DelegateTransporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DelegateTransporter.h; sourceTree = "<group>"; };
-		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CF321F06EF66DCEAFE9B322CF20486D0 /* Pods_ReverseExtensionSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReverseExtensionSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D196D8442A758B1B5E264B8EF6D3E520 /* ReverseExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReverseExtension-dummy.m"; sourceTree = "<group>"; };
-		D66ACA6C8FA36960004204C9CFA1E197 /* ReverseExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-prefix.pch"; sourceTree = "<group>"; };
-		E4FA6296D57197DC3EB6142A248C2498 /* Pods-ReverseExtensionSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ReverseExtensionSample.modulemap"; sourceTree = "<group>"; };
-		F0DE5CC074C9BF60A3C49C5124FDEBD1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F660D03AB716372B8758E2C44A9FA7F4 /* ReverseExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReverseExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9366C77865B3BF8C04267B63B7628A /* ReverseExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReverseExtension-dummy.m"; sourceTree = "<group>"; };
+		C967D6C7CD20B8AAC39659DB35D281DA /* ReverseExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ReverseExtension.modulemap; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CF321F06EF66DCEAFE9B322CF20486D0 /* Pods_ReverseExtensionSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReverseExtensionSample.framework; path = "Pods-ReverseExtensionSample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C2E5690898DE57053E26D6BB1F25E6 /* ExceptionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ExceptionHandler.h; sourceTree = "<group>"; };
+		E4FA6296D57197DC3EB6142A248C2498 /* Pods-ReverseExtensionSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ReverseExtensionSample.modulemap"; sourceTree = "<group>"; };
+		E7E131CF53F91FD39AD36B1656DF0728 /* DelegateTransporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DelegateTransporter.m; sourceTree = "<group>"; };
+		F660D03AB716372B8758E2C44A9FA7F4 /* ReverseExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReverseExtension.framework; path = ReverseExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88F866670234E4F91A31104AEF8C3FD /* ReverseExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.xcconfig; sourceTree = "<group>"; };
 		F9F09EA9269F187D8A367C1B3DFA6D09 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE8F18508F59DE9F8133026CB706B000 /* ExceptionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ExceptionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A574900B71E53FECEECB19EDDA9B0379 /* Frameworks */ = {
+		C8A3D6FE5516D44BEAB411E5FE02B5F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1AEE7F01A85810DD18A3E24A1B37EC /* Foundation.framework in Frameworks */,
+				8F81E667B10DFBC9E1242E4ED075B4A3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B9C471B83B1F118884B0DBF15FD1A414 /* Frameworks */ = {
+		D3D33DBDB9F405CD6BDA0D14F57250EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A54A630EACFA532CA9B9E5A755B520F /* Foundation.framework in Frameworks */,
+				7F0D9BA3069C4983776472EE4AA28557 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,9 +83,19 @@
 		0400908C0D41A20B54FFED6583FB054E /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EC258DAB1CF5BD33C8696CEF6DBBB93C /* ReverseExtension */,
+				07661CC38AE61BC8795ECB40AA24941E /* ReverseExtension */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		07661CC38AE61BC8795ECB40AA24941E /* ReverseExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CF6419DA01CFD3E8C65881D39A4B963D /* ReverseExtension */,
+				DB81BD4C912086CE982D494453766B1D /* Support Files */,
+			);
+			name = ReverseExtension;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		1666736733CA209E77D781A82B47DE81 /* Targets Support Files */ = {
@@ -110,26 +124,12 @@
 			path = "Target Support Files/Pods-ReverseExtensionSample";
 			sourceTree = "<group>";
 		};
-		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		4DF9BD64442E5912A18104707C627F16 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F0DE5CC074C9BF60A3C49C5124FDEBD1 /* Info.plist */,
-				6931D18D1ECF20CFC30324F6612D124A /* ReverseExtension.modulemap */,
-				7D66DC36625FD3BDA45F6B6B30E90522 /* ReverseExtension.xcconfig */,
-				D196D8442A758B1B5E264B8EF6D3E520 /* ReverseExtension-dummy.m */,
-				D66ACA6C8FA36960004204C9CFA1E197 /* ReverseExtension-prefix.pch */,
-				7370D6EB4D3FC7C1AFC5154695C09810 /* ReverseExtension-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "ReverseExtensionSample/Pods/Target Support Files/ReverseExtension";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -141,17 +141,6 @@
 				A5B695BB6BE1D101C2E0EC3748B22C39 /* Products */,
 				1666736733CA209E77D781A82B47DE81 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8873D6DA7983DBD25C038D14808AA5DA /* ReverseExtension */ = {
-			isa = PBXGroup;
-			children = (
-				A30B63A0901769CDF35E36FB1D572448 /* DelegateTransporter.h */,
-				8CAEE8F4BBF12FCF1CCC09D3104B280F /* DelegateTransporter.m */,
-				380A81A73FDD800D70B9608C6C7AE1D5 /* ReverseExtension.swift */,
-				9D17DB6D1E66A00900282636 /* UITableViewDelegateTransporter.swift */,
-			);
-			path = ReverseExtension;
 			sourceTree = "<group>";
 		};
 		A5B695BB6BE1D101C2E0EC3748B22C39 /* Products */ = {
@@ -166,69 +155,88 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC258DAB1CF5BD33C8696CEF6DBBB93C /* ReverseExtension */ = {
+		CF6419DA01CFD3E8C65881D39A4B963D /* ReverseExtension */ = {
 			isa = PBXGroup;
 			children = (
-				8873D6DA7983DBD25C038D14808AA5DA /* ReverseExtension */,
-				4DF9BD64442E5912A18104707C627F16 /* Support Files */,
+				3462488C1DD06A02953F18FF6A7954E8 /* DelegateTransporter.h */,
+				E7E131CF53F91FD39AD36B1656DF0728 /* DelegateTransporter.m */,
+				E0C2E5690898DE57053E26D6BB1F25E6 /* ExceptionHandler.h */,
+				FE8F18508F59DE9F8133026CB706B000 /* ExceptionHandler.m */,
+				9A2B5182A220A9934F98BA11BE4E1D57 /* ReverseExtension.swift */,
+				3666883D31CC38FE8CE76F49AFA7785D /* UITableViewDelegateTransporter.swift */,
 			);
 			name = ReverseExtension;
-			path = ../..;
+			path = ReverseExtension;
+			sourceTree = "<group>";
+		};
+		DB81BD4C912086CE982D494453766B1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				686C113CC55FA6CC94AF984F95AA6A33 /* Info.plist */,
+				C967D6C7CD20B8AAC39659DB35D281DA /* ReverseExtension.modulemap */,
+				F88F866670234E4F91A31104AEF8C3FD /* ReverseExtension.xcconfig */,
+				AC9366C77865B3BF8C04267B63B7628A /* ReverseExtension-dummy.m */,
+				38715556038A29D36D0223E5DCD34287 /* ReverseExtension-prefix.pch */,
+				1C3E61B4725CFE4F49AAE15C961EE4C1 /* ReverseExtension-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "ReverseExtensionSample/Pods/Target Support Files/ReverseExtension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		31D262B08AD735E3074F42601B4C3F3A /* Headers */ = {
+		523F43C14DDD0AE9CBBE068B97E7A623 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7DFE39FF85D640F31E286C5FADE1AA8 /* Pods-ReverseExtensionSample-umbrella.h in Headers */,
+				993E34542EB07D89A1D61D867F6291BB /* Pods-ReverseExtensionSample-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5B5B4767638388EBBBBB1DB9B92FE3 /* Headers */ = {
+		E1344888339CF8AD377F9648D474540F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D49BC28D28313C54457F0AE535FF92 /* DelegateTransporter.h in Headers */,
-				6F8498FEF7B55CE7C9E3B06FDD672633 /* ReverseExtension-umbrella.h in Headers */,
+				2B53E01BB00B2974C2EA046699B85350 /* DelegateTransporter.h in Headers */,
+				51CC1C38870497F0B076F896C7C88AF9 /* ExceptionHandler.h in Headers */,
+				335DDE4A7A2B87D1DA8706EE07EA69DF /* ReverseExtension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8FA88B8D537371FD8616BF0815D97E94 /* Pods-ReverseExtensionSample */ = {
+		1919FD317187F998348D17C7E7F6BFB0 /* Pods-ReverseExtensionSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D666017887FED0A1058E725C661EC09 /* Build configuration list for PBXNativeTarget "Pods-ReverseExtensionSample" */;
+			buildConfigurationList = CB43F6FD6353DBFD508E824CBB870BC2 /* Build configuration list for PBXNativeTarget "Pods-ReverseExtensionSample" */;
 			buildPhases = (
-				87702C6AD4CAF8BDC9605FC251FF7312 /* Sources */,
-				A574900B71E53FECEECB19EDDA9B0379 /* Frameworks */,
-				31D262B08AD735E3074F42601B4C3F3A /* Headers */,
+				A48C1FB1B862DAEA0385FEEACECEB9C2 /* Sources */,
+				C8A3D6FE5516D44BEAB411E5FE02B5F8 /* Frameworks */,
+				523F43C14DDD0AE9CBBE068B97E7A623 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CEDB546CFA1EB7B04575E7F05B89357A /* PBXTargetDependency */,
+				FCBC29EBACD1B0B978A9F4F62B05342A /* PBXTargetDependency */,
 			);
 			name = "Pods-ReverseExtensionSample";
 			productName = "Pods-ReverseExtensionSample";
 			productReference = CF321F06EF66DCEAFE9B322CF20486D0 /* Pods_ReverseExtensionSample.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D56BA7E361B5F18EF855C8F75EAD005D /* ReverseExtension */ = {
+		9C357DDC4DC130FBD7A1E0BAC998DC88 /* ReverseExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A092CEAA4BDE5318CFE67B27665B7162 /* Build configuration list for PBXNativeTarget "ReverseExtension" */;
+			buildConfigurationList = C275D8E34ADDC2BD951D80FA0BD21CD9 /* Build configuration list for PBXNativeTarget "ReverseExtension" */;
 			buildPhases = (
-				7E7D6D42B9D30F32130A728F5D74309D /* Sources */,
-				B9C471B83B1F118884B0DBF15FD1A414 /* Frameworks */,
-				FA5B5B4767638388EBBBBB1DB9B92FE3 /* Headers */,
+				4D0E660230BABB0DA2C515176C9A89BC /* Sources */,
+				D3D33DBDB9F405CD6BDA0D14F57250EF /* Frameworks */,
+				E1344888339CF8AD377F9648D474540F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -260,85 +268,54 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8FA88B8D537371FD8616BF0815D97E94 /* Pods-ReverseExtensionSample */,
-				D56BA7E361B5F18EF855C8F75EAD005D /* ReverseExtension */,
+				1919FD317187F998348D17C7E7F6BFB0 /* Pods-ReverseExtensionSample */,
+				9C357DDC4DC130FBD7A1E0BAC998DC88 /* ReverseExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7E7D6D42B9D30F32130A728F5D74309D /* Sources */ = {
+		4D0E660230BABB0DA2C515176C9A89BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C9A58747E1C877E31BEA13B94EDF737 /* DelegateTransporter.m in Sources */,
-				9E1DA44CFE30E7BC23B34C6A8696B647 /* ReverseExtension-dummy.m in Sources */,
-				BDE6C394F0D027AC82DD9F334BA2FADE /* ReverseExtension.swift in Sources */,
-				9D17DB6E1E66A00900282636 /* UITableViewDelegateTransporter.swift in Sources */,
+				BFBFD9973BB5003640B4C497D2941F0C /* DelegateTransporter.m in Sources */,
+				5F446C7395E210F34F6794F98CB24709 /* ExceptionHandler.m in Sources */,
+				58D09B882DE9BAE943510382A9103ADC /* ReverseExtension-dummy.m in Sources */,
+				EB7698ECF1ABF8F5E0FA26C609C38909 /* ReverseExtension.swift in Sources */,
+				B8B785DA70BB88D6EFDD2D338FA9A989 /* UITableViewDelegateTransporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87702C6AD4CAF8BDC9605FC251FF7312 /* Sources */ = {
+		A48C1FB1B862DAEA0385FEEACECEB9C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8A9A6B5E0275D7E634751A52B6AFA52 /* Pods-ReverseExtensionSample-dummy.m in Sources */,
+				481DEC930CF9D4B423488053F1738C94 /* Pods-ReverseExtensionSample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CEDB546CFA1EB7B04575E7F05B89357A /* PBXTargetDependency */ = {
+		FCBC29EBACD1B0B978A9F4F62B05342A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReverseExtension;
-			target = D56BA7E361B5F18EF855C8F75EAD005D /* ReverseExtension */;
-			targetProxy = A21BA7A6D5E0923539D1308B5CFBA2EA /* PBXContainerItemProxy */;
+			target = 9C357DDC4DC130FBD7A1E0BAC998DC88 /* ReverseExtension */;
+			targetProxy = FF2DEEE170FB55B20E273F6DF7A8DFBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		031AE28732ADDAA15D4C55A480E461C8 /* Release */ = {
+		51FAE7DB423BC71665A165A0F8F82976 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D66DC36625FD3BDA45F6B6B30E90522 /* ReverseExtension.xcconfig */;
+			baseConfigurationReference = 071EDA9C78E2C98D90FAEF6B605BFC13 /* Pods-ReverseExtensionSample.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ReverseExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		43CF8E80C96DD3655EEA8279C67AEE79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E358887ECE71E51D483EB16BE5D542C /* Pods-ReverseExtensionSample.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -351,7 +328,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -359,11 +336,45 @@
 				PRODUCT_NAME = Pods_ReverseExtensionSample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
+		};
+		627AD01EFCB20DD774FFA4D87A8165C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F88F866670234E4F91A31104AEF8C3FD /* ReverseExtension.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ReverseExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -405,38 +416,40 @@
 			};
 			name = Release;
 		};
-		CA21A3654141CDE47EB43384F25573F7 /* Debug */ = {
+		AE2615A89506126ABF85FEC7501DFD5A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D66DC36625FD3BDA45F6B6B30E90522 /* ReverseExtension.xcconfig */;
+			baseConfigurationReference = 6E358887ECE71E51D483EB16BE5D542C /* Pods-ReverseExtensionSample.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ReverseExtensionSample/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ReverseExtension;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ReverseExtensionSample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -482,41 +495,37 @@
 			};
 			name = Debug;
 		};
-		E785A8D5D9C93E81AA7D4DB915576FBB /* Debug */ = {
+		FE0B1996FFF13CCF9C2AA24D7D01D95F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 071EDA9C78E2C98D90FAEF6B605BFC13 /* Pods-ReverseExtensionSample.debug.xcconfig */;
+			baseConfigurationReference = F88F866670234E4F91A31104AEF8C3FD /* ReverseExtension.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ReverseExtensionSample/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ReverseExtensionSample;
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ReverseExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -530,20 +539,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D666017887FED0A1058E725C661EC09 /* Build configuration list for PBXNativeTarget "Pods-ReverseExtensionSample" */ = {
+		C275D8E34ADDC2BD951D80FA0BD21CD9 /* Build configuration list for PBXNativeTarget "ReverseExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E785A8D5D9C93E81AA7D4DB915576FBB /* Debug */,
-				43CF8E80C96DD3655EEA8279C67AEE79 /* Release */,
+				627AD01EFCB20DD774FFA4D87A8165C1 /* Debug */,
+				FE0B1996FFF13CCF9C2AA24D7D01D95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A092CEAA4BDE5318CFE67B27665B7162 /* Build configuration list for PBXNativeTarget "ReverseExtension" */ = {
+		CB43F6FD6353DBFD508E824CBB870BC2 /* Build configuration list for PBXNativeTarget "Pods-ReverseExtensionSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CA21A3654141CDE47EB43384F25573F7 /* Debug */,
-				031AE28732ADDAA15D4C55A480E461C8 /* Release */,
+				51FAE7DB423BC71665A165A0F8F82976 /* Debug */,
+				AE2615A89506126ABF85FEC7501DFD5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

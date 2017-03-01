@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37A79BA21E6745130058DBD2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A79BA01E6745130058DBD2 /* TableViewCell.swift */; };
+		37A79BA31E6745130058DBD2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A79BA11E6745130058DBD2 /* TableViewCell.xib */; };
+		37A79BA51E6748D10058DBD2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A79BA41E6748D10058DBD2 /* MessageModel.swift */; };
 		5598FF7420A3348CD0BB2BD0 /* Pods_ReverseExtensionSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5403FC6BE659C368D62D35E1 /* Pods_ReverseExtensionSample.framework */; };
 		9D17DB541E669E2200282636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17DB531E669E2200282636 /* AppDelegate.swift */; };
 		9D17DB561E669E2200282636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17DB551E669E2200282636 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		0523D6D2854A4E03BBDB5558 /* Pods-ReverseExtensionSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReverseExtensionSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample.debug.xcconfig"; sourceTree = "<group>"; };
+		37A79BA01E6745130058DBD2 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		37A79BA11E6745130058DBD2 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		37A79BA41E6748D10058DBD2 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		5403FC6BE659C368D62D35E1 /* Pods_ReverseExtensionSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReverseExtensionSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D61D33DE02BFB0E263CF360 /* Pods-ReverseExtensionSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReverseExtensionSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample.release.xcconfig"; sourceTree = "<group>"; };
 		9D17DB501E669E2200282636 /* ReverseExtensionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseExtensionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,9 @@
 				9D17DB531E669E2200282636 /* AppDelegate.swift */,
 				9D17DB551E669E2200282636 /* ViewController.swift */,
 				9D17DB571E669E2200282636 /* Main.storyboard */,
+				37A79BA01E6745130058DBD2 /* TableViewCell.swift */,
+				37A79BA11E6745130058DBD2 /* TableViewCell.xib */,
+				37A79BA41E6748D10058DBD2 /* MessageModel.swift */,
 				9D17DB5A1E669E2300282636 /* Assets.xcassets */,
 				9D17DB5C1E669E2300282636 /* LaunchScreen.storyboard */,
 				9D17DB5F1E669E2300282636 /* Info.plist */,
@@ -151,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D17DB5E1E669E2300282636 /* LaunchScreen.storyboard in Resources */,
+				37A79BA31E6745130058DBD2 /* TableViewCell.xib in Resources */,
 				9D17DB5B1E669E2300282636 /* Assets.xcassets in Resources */,
 				9D17DB591E669E2300282636 /* Main.storyboard in Resources */,
 			);
@@ -211,8 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A79BA21E6745130058DBD2 /* TableViewCell.swift in Sources */,
 				9D17DB561E669E2200282636 /* ViewController.swift in Sources */,
 				9D17DB541E669E2200282636 /* AppDelegate.swift in Sources */,
+				37A79BA51E6748D10058DBD2 /* MessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
