@@ -7,4 +7,5 @@ target 'ReverseExtensionSample' do
 
   # Pods for ReverseExtensionSample
   pod 'ReverseExtension', :path => "../"
+  pod 'TouchVisualizer'
 end

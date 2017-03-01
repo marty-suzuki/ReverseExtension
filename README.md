@@ -56,6 +56,10 @@ it, simply add the following line to your Podfile:
 pod "ReverseExtension"
 ```
 
+## Special Thanks
+
+[TouchVisualizer](https://github.com/morizotter/TouchVisualizer) (Created by [@morizotter](https://github.com/morizotter))
+
 ## Author
 
 marty-suzuki, s1180183@gmail.com
