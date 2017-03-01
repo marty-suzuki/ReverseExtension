@@ -80,19 +80,61 @@ extension UITableView {
         }
         public var scrollViewDidReachTop: ((UIScrollView) -> ())?
         
-        deinit {}
+        private var lastScrollIndicatorInsets: UIEdgeInsets?
+        private var lastContentInset: UIEdgeInsets?
+        private var mutex = pthread_mutex_t()
+        
+        deinit {
+            base?.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
+            pthread_mutex_destroy(&mutex)
+        }
         
         //MARK: - Initializer
         fileprivate init(_ base: UITableView) {
             self.base = base
             super.init()
-            configureTableView()
+            pthread_mutex_init(&self.mutex, nil)
+            configureTableView(base)
         }
         
-        private func configureTableView() {
-            guard let base = self.base else { return }
-            if base.transform == CGAffineTransform.identity {
-                base.transform = CGAffineTransform.identity.rotated(by: .pi)
+        private func configureTableView(_ tableView: UITableView) {
+            if tableView.transform == CGAffineTransform.identity {
+                tableView.transform = CGAffineTransform.identity.rotated(by: .pi)
+            }
+            tableView.addObserver(self, forKeyPath: #keyPath(UITableView.contentInset), options: [.new, .old], context: nil)
+        }
+        
+        private func configureTableViewInsets() {
+            defer {
+                pthread_mutex_unlock(&mutex)
+            }
+            pthread_mutex_lock(&mutex)
+            guard let base = base else { return }
+            if let _ = self.lastContentInset, let _ = self.lastScrollIndicatorInsets {
+                return
+            }
+            let contentInset = base.contentInset
+            base.contentInset.bottom = contentInset.top
+            base.contentInset.top = contentInset.bottom
+            self.lastContentInset = base.contentInset
+
+            let scrollIndicatorInsets = base.scrollIndicatorInsets
+            base.scrollIndicatorInsets.bottom = scrollIndicatorInsets.top
+            base.scrollIndicatorInsets.top = scrollIndicatorInsets.bottom
+            base.scrollIndicatorInsets.right = base.bounds.size.width - 8
+            self.lastScrollIndicatorInsets = base.scrollIndicatorInsets
+        }
+        
+        public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            switch keyPath {
+            case (#keyPath(UITableView.contentInset))?:
+                DispatchQueue.global().async { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.configureTableViewInsets()
+                    }
+                }
+            default:
+                break
             }
         }
     }
