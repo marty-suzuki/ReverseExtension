@@ -18,10 +18,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.re.delegate = self
         tableView.dataSource = self
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        tableView.re.delegate = self
+        tableView.re.scrollViewDidReachTop = { scrollView in
+            print("scrollViewDidReachTop")
+        }
+        tableView.re.scrollViewDidReachBottom = { scrollView in
+            print("scrollViewDidReachBottom")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,5 +63,7 @@ extension ViewController: UITableViewDataSource {
 
 
 extension ViewController: UITableViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollView.contentOffset.y =", scrollView.contentOffset.y)
+    }
 }

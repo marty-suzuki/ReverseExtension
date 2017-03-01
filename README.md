@@ -1,17 +1,51 @@
 # ReverseExtension
 
-[![CI Status](http://img.shields.io/travis/marty-suzuki/ReverseExtension.svg?style=flat)](https://travis-ci.org/marty-suzuki/ReverseExtension)
 [![Version](https://img.shields.io/cocoapods/v/ReverseExtension.svg?style=flat)](http://cocoapods.org/pods/ReverseExtension)
 [![License](https://img.shields.io/cocoapods/l/ReverseExtension.svg?style=flat)](http://cocoapods.org/pods/ReverseExtension)
 [![Platform](https://img.shields.io/cocoapods/p/ReverseExtension.svg?style=flat)](http://cocoapods.org/pods/ReverseExtension)
 
-![](./Images/bottom_insert.gif)
+UITableView extension that enabled to insert cell from bottom of tableView.
+
+<img src="./Images/bottom_insert.gif" width="300">
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```swift
+import UIKit
+import ReverseExtension
+
+class ViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+        //You can apply reverse effect only set delegate.
+        tableView.re.delegate = self
+        tableView.re.scrollViewDidReachTop = { scrollView in
+            print("scrollViewDidReachTop")
+        }
+        tableView.re.scrollViewDidReachBottom = { scrollView in
+            print("scrollViewDidReachBottom")
+        }
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    //ReverseExtension also supports handling UITableViewDelegate.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollView.contentOffset.y =", scrollView.contentOffset.y)
+    }
+}
+```
 
 ## Requirements
+
+- Swift 3.0
+- Xcode 8.0 or greater
+- iOS 8.0 or greater
 
 ## Installation
 
@@ -24,7 +58,7 @@ pod "ReverseExtension"
 
 ## Author
 
-marty-suzuki, suzuki_taiki@cyberagent.co.jp
+marty-suzuki, s1180183@gmail.com
 
 ## License
 
