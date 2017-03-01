@@ -1,0 +1,16 @@
+PODS:
+  - ReverseExtension (0.1.0)
+
+DEPENDENCIES:
+  - ReverseExtension (from `../`)
+
+EXTERNAL SOURCES:
+  ReverseExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ReverseExtension: afba2927ad8bf27ca4de3e99940fed760d6db0ee
+
+PODFILE CHECKSUM: 0ac604249dba8814da4048f8c8137a8ea2046e76
+
+COCOAPODS: 1.1.0.rc.3

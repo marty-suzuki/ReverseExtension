@@ -1,0 +1,6 @@
+framework module ReverseExtension {
+  umbrella header "ReverseExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

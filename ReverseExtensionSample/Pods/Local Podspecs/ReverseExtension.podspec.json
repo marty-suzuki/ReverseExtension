@@ -1,0 +1,22 @@
+{
+  "name": "ReverseExtension",
+  "version": "0.1.0",
+  "summary": "A short description of ReverseExtension.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/marty-suzuki/ReverseExtension",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "marty-suzuki": "s1180183@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/marty-suzuki/ReverseExtension.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ReverseExtension/*.{swift,h,m}"
+}
