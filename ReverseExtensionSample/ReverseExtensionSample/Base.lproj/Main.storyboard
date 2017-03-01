@@ -51,6 +51,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Eej-Cb-GGg">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="trash" id="Cov-Ac-sjm">
+                            <connections>
+                                <action selector="trashButtonTapped:" destination="BYZ-38-t0r" id="Uz8-vc-2Ra"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="c1q-Dt-Bme">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="I30-Rj-afV"/>

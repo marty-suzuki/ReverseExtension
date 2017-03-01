@@ -44,6 +44,11 @@ class ViewController: UIViewController {
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
+    
+    @IBAction func trashButtonTapped(_ sender: UIBarButtonItem) {
+        messages.removeAll()
+        tableView.reloadData()
+    }
 }
 
 extension ViewController: UITableViewDataSource {
