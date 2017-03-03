@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.dataSource = self
+        tableView.re.dataSource = self
         
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
@@ -39,9 +39,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        messages.insert(MessageModel(), at: 0)
+        messages.append(MessageModel())
         tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.re.insertRows(at: [IndexPath(row: messages.count - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
     

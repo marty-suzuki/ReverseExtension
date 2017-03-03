@@ -26,6 +26,10 @@ extension UITableView {
 extension UITableView {
     public final class ReverseExtension: NSObject {
         private(set) weak var base: UITableView?
+        fileprivate var nonNilBase: UITableView {
+            guard let base = base else { fatalError("base is nil") }
+            return base
+        }
         
         //MARK: Delegate
         private var delegateTransporter: UITableViewDelegateTransporter? {
@@ -38,6 +42,11 @@ extension UITableView {
                     return
                 }
                 delegateTransporter = UITableViewDelegateTransporter(delegates: [delegate, self])
+            }
+        }
+        public weak var dataSource: UITableViewDataSource? {
+            didSet {
+                base?.dataSource = self
             }
         }
         
@@ -99,6 +108,7 @@ extension UITableView {
             configureTableView(base)
         }
         
+        //MARK: - UITableView configuration
         private func configureTableView(_ tableView: UITableView) {
             if tableView.transform == CGAffineTransform.identity {
                 tableView.transform = CGAffineTransform.identity.rotated(by: .pi)
@@ -127,6 +137,7 @@ extension UITableView {
             self.lastScrollIndicatorInsets = base.scrollIndicatorInsets
         }
         
+        //MARK: KVO
         public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
             switch keyPath {
             case (#keyPath(UITableView.contentInset))?:
@@ -138,6 +149,24 @@ extension UITableView {
             default:
                 break
             }
+        }
+        
+        //MARK: Reverse method
+        func reversedSection(with section: Int) -> Int {
+            return max(0, max(0, (nonNilBase.numberOfSections - 1)) - section)
+        }
+        
+        func reversedIndexPath(with indexPath: IndexPath) -> IndexPath {
+            let base = nonNilBase
+            let section = max(0, max(0, (base.numberOfSections - 1)) - indexPath.section)
+            let row = max(0, max(0, (base.numberOfRows(inSection: indexPath.section) - 1)) - indexPath.row)
+            return IndexPath(row: row, section: section)
+        }
+        
+        //MAKR: - UITableView Proxy
+        public func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            nonNilBase.insertRows(at: newIndexPaths, with: animation)
         }
     }
 }
@@ -164,5 +193,74 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             view.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
+    }
+}
+
+extension UITableView.ReverseExtension: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = dataSource else { fatalError("dataSource is nil") }
+        return dataSource.tableView(tableView, numberOfRowsInSection: reversedSection(with: section))
+    }
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let dataSource = dataSource else { fatalError("dataSource is nil") }
+        return dataSource.tableView(tableView, cellForRowAt: reversedIndexPath(with: indexPath))
+    }
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {// Default is 1 if not implemented
+        return dataSource?.numberOfSections?(in: tableView) ?? 1
+    }
+
+    // fixed font style. use custom view (UILabel) if you want something different
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dataSource?.tableView?(tableView, titleForFooterInSection: reversedSection(with: section))
+    }
+    
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return dataSource?.tableView?(tableView, titleForHeaderInSection: reversedSection(with: section))
+    }
+    
+    // Editing
+    
+    // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return dataSource?.tableView?(tableView, canEditRowAt: reversedIndexPath(with: indexPath)) ?? true
+    }
+    
+    // Moving/reordering
+    
+    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return dataSource?.tableView?(tableView, canMoveRowAt: reversedIndexPath(with: indexPath)) ?? false
+    }
+    
+    // Index
+    
+    // return list of section titles to display in section index view (e.g. "ABCD...Z#")
+    public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return dataSource?.sectionIndexTitles?(for: tableView)?.reversed()
+    }
+    
+    // tell table which section corresponds to section title/index (e.g. "B",1))
+    public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return dataSource?.tableView?(tableView, sectionForSectionIndexTitle: title, at: reversedSection(with: index)) ?? index
+    }
+    
+    // Data manipulation - insert and delete support
+    
+    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
+    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        dataSource?.tableView?(tableView, commit: editingStyle, forRowAt: reversedIndexPath(with: indexPath))
+    }
+    
+    // Data manipulation - reorder / moving support
+    
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let source = reversedIndexPath(with: sourceIndexPath)
+        let destination = reversedIndexPath(with: destinationIndexPath)
+        dataSource?.tableView?(tableView, moveRowAt: source, to: destination)
     }
 }
