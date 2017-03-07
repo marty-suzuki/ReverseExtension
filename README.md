@@ -11,6 +11,20 @@ UITableView extension that enabled to insert cell from bottom of tableView.
 
 <img src="./Images/bottom_insert.gif" width="300">
 
+## Concept
+
+It is difficult to fill a tableview content from bottom.
+So, ReverseExtension rotate both of UITableView and UITableViewCell like this images.
+
+<img src="./Images/tableView1.png" width="25%">
+<img src="./Images/tableView2.png" width="25%">
+<img src="./Images/tableView3.png" width="25%">
+<img src="./Images/tableView4.png" width="25%">
+
+If you implement those in ViewController, it will have been fat.
+So, escaping those implementation to `re` namespace property, and hiding those complex implementation.
+In addition, you can rollback to normal behaviour, only removing `re` namespace.
+
 ## Example
 
 ```swift
@@ -52,12 +66,25 @@ extension ViewController: UITableViewDelegate {
 
 ## Installation
 
+#### CocoaPods
+
 ReverseExtension is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "ReverseExtension"
 ```
+
+#### Carthage
+
+If you’re using [Carthage](https://github.com/Carthage/Carthage), simply add
+ReverseExtension to your `Cartfile`:
+
+```
+github "marty-suzuki/ReverseExtension"
+```
+
+Make sure to add `ReverseExtension.framework` to "Linked Frameworks and Libraries" and "copy-frameworks" Build Phases.
 
 ## Special Thanks
 
