@@ -16,10 +16,10 @@ UITableView extension that enabled to insert cell from bottom of tableView.
 It is difficult to fill a tableview content from bottom.
 So, ReverseExtension rotate both of UITableView and UITableViewCell like this images.
 
-<img src="./Images/tableView1.png" width="25%">
-<img src="./Images/tableView2.png" width="25%">
-<img src="./Images/tableView3.png" width="25%">
-<img src="./Images/tableView4.png" width="25%">
+<img src="./Images/tableview1.png" width="21%">
+<img src="./Images/tableview2.png" width="35%">
+<img src="./Images/tableview3.png" width="21%">
+<img src="./Images/tableview4.png" width="21%">
 
 If you implement those in ViewController, it will have been fat.
 So, escaping those implementation to `re` namespace property, and hiding those complex implementation.

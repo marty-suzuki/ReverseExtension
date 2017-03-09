@@ -164,9 +164,138 @@ extension UITableView {
         }
         
         //MAKR: - UITableView Proxy
+        public func numberOfRows(inSection section: Int) -> Int {
+            let section = reversedSection(with: section)
+            return nonNilBase.numberOfRows(inSection: section)
+        }
+        
+        public func rect(forSection section: Int) -> CGRect {
+            let section = reversedSection(with: section)
+            return nonNilBase.rect(forSection: section)
+        }
+        
+        public func rectForHeader(inSection section: Int) -> CGRect {
+            let section = reversedSection(with: section)
+            return nonNilBase.rectForHeader(inSection: section)
+        }
+        
+        public func rectForFooter(inSection section: Int) -> CGRect {
+            let section = reversedSection(with: section)
+            return nonNilBase.rectForFooter(inSection: section)
+        }
+        
+        public func rectForRow(at indexPath: IndexPath) -> CGRect {
+            let indexPaht = reversedIndexPath(with: indexPath)
+            return nonNilBase.rectForRow(at: indexPath)
+        }
+        
+        public func indexPathForRow(at point: CGPoint) -> IndexPath? {
+            guard let indexPath = base?.indexPathForRow(at: point) else { return nil }
+            return reversedIndexPath(with: indexPath)
+        }
+        
+        public func indexPath(for cell: UITableViewCell) -> IndexPath? {
+            guard let indexPath = base?.indexPath(for: cell) else { return nil }
+            return reversedIndexPath(with: indexPath)
+        }
+        
+        public func indexPathsForRows(in rect: CGRect) -> [IndexPath]? {
+            return base?.indexPathsForRows(in: rect)?.map { reversedIndexPath(with: $0) }
+        }
+        
+        public func cellForRow(at indexPath: IndexPath) -> UITableViewCell? {
+            let indexPath = reversedIndexPath(with: indexPath)
+            return base?.cellForRow(at: indexPath)
+        }
+        
+        public var indexPathsForVisibleRows: [IndexPath]? {
+            return base?.indexPathsForVisibleRows?.map { reversedIndexPath(with: $0) }
+        }
+        
+        public func headerView(forSection section: Int) -> UITableViewHeaderFooterView? {
+            let section = reversedSection(with: section)
+            return base?.headerView(forSection: section)
+        }
+        
+        public func footerView(forSection section: Int) -> UITableViewHeaderFooterView? {
+            let section = reversedSection(with: section)
+            return base?.footerView(forSection: section)
+        }
+        
+        public func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool) {
+            let indexPath = reversedIndexPath(with: indexPath)
+            base?.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+        }
+        
+        public func insertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+            let newSections = IndexSet(sections.map { reversedSection(with: $0) })
+            base?.insertSections(newSections, with: animation)
+        }
+        
+        public func deleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+            let newSections = IndexSet(sections.map { reversedSection(with: $0) })
+            base?.deleteSections(newSections, with: animation)
+        }
+        
+        public func reloadSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+            let newSections = IndexSet(sections.map { reversedSection(with: $0) })
+            base?.reloadSections(newSections, with: animation)
+        }
+        
+        public func moveSection(_ section: Int, toSection newSection: Int) {
+            let section = reversedSection(with: section)
+            let newSection = reversedSection(with: newSection)
+            base?.moveSection(section, toSection: newSection)
+        }
+        
         public func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
             let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
-            nonNilBase.insertRows(at: newIndexPaths, with: animation)
+            base?.insertRows(at: newIndexPaths, with: animation)
+        }
+        
+        public func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            base?.deleteRows(at: newIndexPaths, with: animation)
+        }
+        
+        public func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            base?.reloadRows(at: newIndexPaths, with: animation)
+        }
+        
+        public func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
+            let indexPath = reversedIndexPath(with: indexPath)
+            let newIndexPath = reversedIndexPath(with: newIndexPath)
+            base?.moveRow(at: indexPath, to: newIndexPath)
+        }
+        
+        public var indexPathForSelectedRow: IndexPath? {
+            guard let indexPath = base?.indexPathForSelectedRow else { return nil }
+            return reversedIndexPath(with: indexPath)
+        }
+        
+        public var indexPathsForSelectedRows: [IndexPath]? {
+            return base?.indexPathsForSelectedRows?.map { reversedIndexPath(with: $0) }
+        }
+        
+        public func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+            let newIndexPath: IndexPath?
+            if let indexPath = indexPath {
+                newIndexPath = reversedIndexPath(with: indexPath)
+            } else {
+                newIndexPath = nil
+            }
+            base?.selectRow(at: newIndexPath, animated: animated, scrollPosition: scrollPosition)
+        }
+        
+        func deselectRow(at indexPath: IndexPath, animated: Bool) {
+            let indexPath = reversedIndexPath(with: indexPath)
+            base?.deselectRow(at: indexPath, animated: animated)
+        }
+        
+        func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+            let indexPath = reversedIndexPath(with: indexPath)
+            return nonNilBase.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         }
     }
 }
@@ -183,6 +312,14 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
         if cell.transform == CGAffineTransform.identity {
             UIView.setAnimationsEnabled(false)
             cell.transform = CGAffineTransform.identity.rotated(by: .pi)
+            UIView.setAnimationsEnabled(true)
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if view.transform == CGAffineTransform.identity {
+            UIView.setAnimationsEnabled(false)
+            view.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
     }
