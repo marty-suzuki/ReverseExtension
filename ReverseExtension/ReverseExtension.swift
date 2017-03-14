@@ -137,6 +137,19 @@ extension UITableView {
             self.lastScrollIndicatorInsets = base.scrollIndicatorInsets
         }
         
+        private func configureCell(_ cell: UITableViewCell?) {
+            guard let cell = cell else { return }
+            for view in cell.subviews where String(describing: view).contains("Confirm") {
+                if view.transform == CGAffineTransform.identity {
+                    DispatchQueue.main.async {
+                        //UIView.setAnimationsEnabled(false)
+                        view.transform = CGAffineTransform.identity.rotated(by: .pi)
+                        //UIView.setAnimationsEnabled(true)
+                    }
+                }
+            }
+        }
+        
         //MARK: KVO
         public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
             switch keyPath {
@@ -144,6 +157,17 @@ extension UITableView {
                 DispatchQueue.global().async { [weak self] in
                     DispatchQueue.main.async {
                         self?.configureTableViewInsets()
+                    }
+                }
+            case (#keyPath(UITableViewCell.frame))?:
+                guard let change = change else { return }
+                DispatchQueue.global().async { [weak self, change] in
+                    guard let x = (change[.newKey] as? NSValue)?.cgRectValue.origin.x, x > 0,
+                          let cell = object as? UITableViewCell
+                    else { return }
+                    let time = DispatchTime.now() + .milliseconds(10)
+                    DispatchQueue.global().asyncAfter(deadline: time) { [weak cell] in
+                        self?.configureCell(cell)
                     }
                 }
             default:
@@ -309,9 +333,13 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell.transform == CGAffineTransform.identity {
+        if cell.contentView.transform == CGAffineTransform.identity {
+            try? ExceptionHandler.catchException {
+                cell.removeObserver(self, forKeyPath: #keyPath(UITableViewCell.frame))
+            }
+            cell.addObserver(self, forKeyPath: #keyPath(UITableViewCell.frame), options: [.new, .old], context: nil)
             UIView.setAnimationsEnabled(false)
-            cell.transform = CGAffineTransform.identity.rotated(by: .pi)
+            cell.contentView.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
     }
