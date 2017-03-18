@@ -7,23 +7,26 @@
 [![Platform](https://img.shields.io/cocoapods/p/ReverseExtension.svg?style=flat)](http://cocoapods.org/pods/ReverseExtension)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-UITableView extension that enabled to insert cell from bottom of tableView.
+A `UITableView` extension that enables cell insertion from the bottom of a table view.
 
 <img src="./Images/bottom_insert.gif" width="300">
 
 ## Concept
 
-It is difficult to fill a tableview content from bottom.
-So, ReverseExtension rotate both of UITableView and UITableViewCell like this images.
+It is difficult to fill a tableview content from the bottom.
+
+ReverseExtension rotates the `UITableView` and the `UITableViewCell`s like in these images.
 
 <img src="./Images/tableview1.png" width="21%">
 <img src="./Images/tableview2.png" width="35%">
 <img src="./Images/tableview3.png" width="21%">
 <img src="./Images/tableview4.png" width="21%">
 
-If you implement those in ViewController, it will have been fat.
-So, escaping those implementation to `re` namespace property, and hiding those complex implementation.
-In addition, you can rollback to normal behaviour, only removing `re` namespace.
+If you implement this logic in `UIViewController`, it will add too much complexity.
+
+By encapsulating the implementation to the `re` namespace property, we hide the complexity.
+
+In addition, you can roll back to the normal behavior by removing the `re` namespace.
 
 ## Example
 
@@ -39,7 +42,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
-        //You can apply reverse effect only set delegate.
+        //You can apply reverse effect just by setting the delegate.
         tableView.re.delegate = self
         tableView.re.scrollViewDidReachTop = { scrollView in
             print("scrollViewDidReachTop")
