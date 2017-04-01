@@ -209,7 +209,7 @@ extension UITableView {
         }
         
         public func rectForRow(at indexPath: IndexPath) -> CGRect {
-            let indexPaht = reversedIndexPath(with: indexPath)
+            let indexPath = reversedIndexPath(with: indexPath)
             return nonNilBase.rectForRow(at: indexPath)
         }
         
