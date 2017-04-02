@@ -25,7 +25,14 @@ extension UITableView {
 
 extension UITableView {
     public final class ReverseExtension: NSObject {
-        private(set) weak var base: UITableView?
+        private(set) weak var base: UITableView? {
+            didSet {
+                guard let tableView = oldValue else { return }
+                try? ExceptionHandler.catchException {
+                    tableView.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
+                }
+            }
+        }
         fileprivate var nonNilBase: UITableView {
             guard let base = base else { fatalError("base is nil") }
             return base
@@ -94,9 +101,7 @@ extension UITableView {
         private var mutex = pthread_mutex_t()
         
         deinit {
-            try? ExceptionHandler.catchException {
-                base?.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
-            }
+            base = nil
             pthread_mutex_destroy(&mutex)
         }
         
