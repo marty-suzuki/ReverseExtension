@@ -21,18 +21,42 @@ extension UITableView {
         }
         return re
     }
+    
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        guard let newSuperview = newSuperview else {
+            re.contentInsetObserver = nil
+            return
+        }
+    }
+}
+
+fileprivate extension UITableViewCell {
+    private struct AssociatedKey {
+        static var frameObserver: UInt8 = 0
+    }
+    
+    var frameObserver: KeyValueObserver? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.frameObserver) as? KeyValueObserver
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKey.frameObserver, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        guard let newSuperview = newSuperview else {
+            frameObserver = nil
+            return
+        }
+    }
 }
 
 extension UITableView {
     public final class ReverseExtension: NSObject {
-        private(set) weak var base: UITableView? {
-            didSet {
-                guard let tableView = oldValue else { return }
-                try? ExceptionHandler.catchException {
-                    tableView.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
-                }
-            }
-        }
+        private(set) weak var base: UITableView?
         fileprivate var nonNilBase: UITableView {
             guard let base = base else { fatalError("base is nil") }
             return base
@@ -99,9 +123,12 @@ extension UITableView {
         private var lastScrollIndicatorInsets: UIEdgeInsets?
         private var lastContentInset: UIEdgeInsets?
         private var mutex = pthread_mutex_t()
+        fileprivate lazy var contentInsetObserver: KeyValueObserver? = {
+            guard let base = self.base else { return nil }
+            return KeyValueObserver(tareget: base, forKeyPath: #keyPath(UITableView.contentInset))
+        }()
         
         deinit {
-            base = nil
             pthread_mutex_destroy(&mutex)
         }
         
@@ -118,7 +145,11 @@ extension UITableView {
             if tableView.transform == CGAffineTransform.identity {
                 tableView.transform = CGAffineTransform.identity.rotated(by: .pi)
             }
-            tableView.addObserver(self, forKeyPath: #keyPath(UITableView.contentInset), options: [.new, .old], context: nil)
+            contentInsetObserver?.didChange = { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.configureTableViewInsets()
+                }
+            }
         }
         
         private func configureTableViewInsets() {
@@ -158,12 +189,6 @@ extension UITableView {
         //MARK: KVO
         public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
             switch keyPath {
-            case (#keyPath(UITableView.contentInset))?:
-                DispatchQueue.global().async { [weak self] in
-                    DispatchQueue.main.async {
-                        self?.configureTableViewInsets()
-                    }
-                }
             case (#keyPath(UITableViewCell.frame))?:
                 guard let change = change else { return }
                 DispatchQueue.global().async { [weak self, change] in
@@ -338,11 +363,8 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.frameObserver = KeyValueObserver(tareget: cell, forKeyPath: #keyPath(UITableView.frame))
         if cell.contentView.transform == CGAffineTransform.identity {
-            try? ExceptionHandler.catchException {
-                cell.removeObserver(self, forKeyPath: #keyPath(UITableViewCell.frame))
-            }
-            cell.addObserver(self, forKeyPath: #keyPath(UITableViewCell.frame), options: [.new, .old], context: nil)
             UIView.setAnimationsEnabled(false)
             cell.contentView.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
