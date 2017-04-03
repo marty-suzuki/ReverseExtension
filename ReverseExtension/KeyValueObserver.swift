@@ -23,7 +23,7 @@ final class KeyValueObserver: NSObject {
     
     deinit {
         try? ExceptionHandler.catchException {
-            tareget?.removeObserver(self, forKeyPath: #keyPath(UITableView.contentInset))
+            tareget?.removeObserver(self, forKeyPath: keyPath)
         }
     }
     

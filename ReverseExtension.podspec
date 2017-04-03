@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ReverseExtension'
-  s.version          = '0.4.4'
+  s.version          = '0.4.5'
   s.summary          = 'UITableView extension that enabled to insert cell from bottom of tableView.'
 
 # This description is used to generate tags and improve search results.
