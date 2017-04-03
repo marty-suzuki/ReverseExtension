@@ -24,14 +24,14 @@ extension UITableView {
     
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        guard let newSuperview = newSuperview else {
+        guard let _ = newSuperview else {
             re.contentInsetObserver = nil
             return
         }
     }
 }
 
-fileprivate extension UITableViewCell {
+extension UITableViewCell {
     private struct AssociatedKey {
         static var frameObserver: UInt8 = 0
     }
@@ -47,7 +47,7 @@ fileprivate extension UITableViewCell {
     
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        guard let newSuperview = newSuperview else {
+        guard let _ = newSuperview else {
             frameObserver = nil
             return
         }
@@ -173,7 +173,7 @@ extension UITableView {
             self.lastScrollIndicatorInsets = base.scrollIndicatorInsets
         }
         
-        private func configureCell(_ cell: UITableViewCell?) {
+        fileprivate func configureCell(_ cell: UITableViewCell?) {
             guard let cell = cell else { return }
             for view in cell.subviews where String(describing: view).contains("Confirm") {
                 if view.transform == CGAffineTransform.identity {
@@ -183,25 +183,6 @@ extension UITableView {
                         //UIView.setAnimationsEnabled(true)
                     }
                 }
-            }
-        }
-        
-        //MARK: KVO
-        public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-            switch keyPath {
-            case (#keyPath(UITableViewCell.frame))?:
-                guard let change = change else { return }
-                DispatchQueue.global().async { [weak self, change] in
-                    guard let x = (change[.newKey] as? NSValue)?.cgRectValue.origin.x, x > 0,
-                          let cell = object as? UITableViewCell
-                    else { return }
-                    let time = DispatchTime.now() + .milliseconds(10)
-                    DispatchQueue.global().asyncAfter(deadline: time) { [weak cell] in
-                        self?.configureCell(cell)
-                    }
-                }
-            default:
-                break
             }
         }
         
@@ -363,7 +344,20 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.frameObserver = KeyValueObserver(tareget: cell, forKeyPath: #keyPath(UITableView.frame))
+        let frameObserver = KeyValueObserver(tareget: cell, forKeyPath: #keyPath(UITableView.frame))
+        frameObserver.didChange = { [weak self] object, change in
+            guard let change = change else { return }
+            DispatchQueue.global().async {
+                guard let x = (change[.newKey] as? NSValue)?.cgRectValue.origin.x, x > 0,
+                    let cell = object as? UITableViewCell
+                else { return }
+                let time = DispatchTime.now() + .milliseconds(10)
+                DispatchQueue.global().asyncAfter(deadline: time) { [weak cell] in
+                    self?.configureCell(cell)
+                }
+            }
+        }
+        cell.frameObserver = frameObserver
         if cell.contentView.transform == CGAffineTransform.identity {
             UIView.setAnimationsEnabled(false)
             cell.contentView.transform = CGAffineTransform.identity.rotated(by: .pi)

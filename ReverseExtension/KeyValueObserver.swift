@@ -12,7 +12,7 @@ final class KeyValueObserver: NSObject {
     private weak var tareget: NSObject?
     private let keyPath: String
     
-    var didChange: (([NSKeyValueChangeKey : Any]?) -> ())?
+    var didChange: ((Any?, [NSKeyValueChangeKey : Any]?) -> ())?
     
     init(tareget: NSObject, forKeyPath keyPath: String) {
         self.keyPath = keyPath
@@ -31,7 +31,7 @@ final class KeyValueObserver: NSObject {
         switch keyPath {
         case (self.keyPath)?:
             DispatchQueue.global().async { [weak self] in
-                self?.didChange?(change)
+                self?.didChange?(object, change)
             }
         default:
             break
