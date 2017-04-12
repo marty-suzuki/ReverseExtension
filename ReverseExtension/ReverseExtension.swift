@@ -11,12 +11,27 @@ import UIKit
 extension UITableView {
     private struct AssociatedKey {
         static var re: UInt8 = 0
+        static var isReversed: UInt8 = 0
+    }
+    
+    private var isReversed: Bool {
+        set {
+            objc_setAssociatedObject(self, &AssociatedKey.isReversed, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+        get {
+            guard let isReversed = objc_getAssociatedObject(self, &AssociatedKey.isReversed) as? Bool else {
+                objc_setAssociatedObject(self, &AssociatedKey.isReversed, false, .OBJC_ASSOCIATION_ASSIGN)
+                return false
+            }
+            return isReversed
+        }
     }
     
     public var re: ReverseExtension {
         guard let re = objc_getAssociatedObject(self, &AssociatedKey.re) as? ReverseExtension else {
             let re = ReverseExtension(self)
             objc_setAssociatedObject(self, &AssociatedKey.re, re, .OBJC_ASSOCIATION_RETAIN)
+            isReversed = true
             return re
         }
         return re
@@ -24,9 +39,8 @@ extension UITableView {
     
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        guard let _ = newSuperview else {
+        if newSuperview == nil && isReversed {
             re.contentInsetObserver = nil
-            return
         }
     }
 }
