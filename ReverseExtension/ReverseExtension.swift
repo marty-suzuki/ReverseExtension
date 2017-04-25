@@ -337,12 +337,12 @@ extension UITableView {
             base?.selectRow(at: newIndexPath, animated: animated, scrollPosition: scrollPosition)
         }
         
-        func deselectRow(at indexPath: IndexPath, animated: Bool) {
+        public func deselectRow(at indexPath: IndexPath, animated: Bool) {
             let indexPath = reversedIndexPath(with: indexPath)
             base?.deselectRow(at: indexPath, animated: animated)
         }
         
-        func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+        public func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
             let indexPath = reversedIndexPath(with: indexPath)
             return nonNilBase.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         }
