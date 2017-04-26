@@ -205,10 +205,11 @@ extension UITableView {
             return max(0, max(0, (nonNilBase.numberOfSections - 1)) - section)
         }
         
-        func reversedIndexPath(with indexPath: IndexPath) -> IndexPath {
+        func reversedIndexPath(with indexPath: IndexPath, fromReversed reversed: Bool = false) -> IndexPath {
             let base = nonNilBase
             let section = max(0, max(0, (base.numberOfSections - 1)) - indexPath.section)
-            let row = max(0, max(0, (base.numberOfRows(inSection: indexPath.section) - 1)) - indexPath.row)
+            let numberOfRowsInSection = base.numberOfRows(inSection: reversed ? section : indexPath.section)
+            let row = max(0, numberOfRowsInSection - 1 - indexPath.row)
             return IndexPath(row: row, section: section)
         }
         
@@ -272,7 +273,7 @@ extension UITableView {
         }
         
         public func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool) {
-            let indexPath = reversedIndexPath(with: indexPath)
+            let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             base?.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
         }
         
@@ -298,23 +299,23 @@ extension UITableView {
         }
         
         public func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
-            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.insertRows(at: newIndexPaths, with: animation)
         }
         
         public func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
-            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.deleteRows(at: newIndexPaths, with: animation)
         }
         
         public func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
-            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0) }
+            let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.reloadRows(at: newIndexPaths, with: animation)
         }
         
         public func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
-            let indexPath = reversedIndexPath(with: indexPath)
-            let newIndexPath = reversedIndexPath(with: newIndexPath)
+            let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
+            let newIndexPath = reversedIndexPath(with: newIndexPath, fromReversed: true)
             base?.moveRow(at: indexPath, to: newIndexPath)
         }
         
@@ -330,7 +331,7 @@ extension UITableView {
         public func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
             let newIndexPath: IndexPath?
             if let indexPath = indexPath {
-                newIndexPath = reversedIndexPath(with: indexPath)
+                newIndexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             } else {
                 newIndexPath = nil
             }
@@ -338,12 +339,12 @@ extension UITableView {
         }
         
         public func deselectRow(at indexPath: IndexPath, animated: Bool) {
-            let indexPath = reversedIndexPath(with: indexPath)
+            let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             base?.deselectRow(at: indexPath, animated: animated)
         }
         
         public func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-            let indexPath = reversedIndexPath(with: indexPath)
+            let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             return nonNilBase.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         }
     }
