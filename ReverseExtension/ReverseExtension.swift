@@ -97,8 +97,7 @@ extension UITableView {
         
         //MARK: - reachedBottom
         private lazy var _reachedBottom: Bool = {
-            guard let base = self.base else { return false }
-            return base.contentOffset.y <= 0
+            return base.map { $0.contentOffset.y <= 0 } ?? false
         }()
         fileprivate(set) var reachedBottom: Bool {
             set {
@@ -116,9 +115,7 @@ extension UITableView {
         
         //MARK: - reachedTop
         private lazy var _reachedTop: Bool = {
-            guard let base = self.base else { return false }
-            let maxScrollDistance = max(0, base.contentSize.height - base.bounds.size.height)
-            return base.contentOffset.y >= maxScrollDistance
+            return base.map { $0.contentOffset.y >= max(0, $0.contentSize.height - $0.bounds.size.height) } ?? false
         }()
         fileprivate(set) var reachedTop: Bool {
             set {
@@ -139,7 +136,13 @@ extension UITableView {
         private var mutex = pthread_mutex_t()
         fileprivate lazy var contentInsetObserver: KeyValueObserver? = {
             guard let base = self.base else { return nil }
-            return KeyValueObserver(tareget: base, forKeyPath: #keyPath(UITableView.contentInset))
+            let keyPath: String
+            if #available(iOS 11, *) {
+                keyPath = #keyPath(UITableView.safeAreaInsets)
+            } else {
+                keyPath = #keyPath(UITableView.contentInset)
+            }
+            return KeyValueObserver(tareget: base, forKeyPath: keyPath)
         }()
         
         deinit {
@@ -159,7 +162,7 @@ extension UITableView {
             if tableView.transform == CGAffineTransform.identity {
                 tableView.transform = CGAffineTransform.identity.rotated(by: .pi)
             }
-            contentInsetObserver?.didChange = { [weak self] _ in
+            contentInsetObserver?.didChange = { [weak self] _, _ in
                 DispatchQueue.main.async {
                     self?.configureTableViewInsets()
                 }
@@ -175,7 +178,12 @@ extension UITableView {
             if let _ = self.lastContentInset, let _ = self.lastScrollIndicatorInsets {
                 return
             }
-            let contentInset = base.contentInset
+            let contentInset: UIEdgeInsets
+            if #available(iOS 11, *) {
+                contentInset = base.safeAreaInsets
+            } else {
+                contentInset = base.contentInset
+            }
             base.contentInset.bottom = contentInset.top
             base.contentInset.top = contentInset.bottom
             self.lastContentInset = base.contentInset

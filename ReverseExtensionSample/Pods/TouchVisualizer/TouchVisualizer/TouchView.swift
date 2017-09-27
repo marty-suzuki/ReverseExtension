@@ -90,12 +90,12 @@ final public class TouchView: UIImageView {
     }
     
     // MARK: - Update Functions
-    internal func update(_ timer: Timer) {
-        if let startDate = startDate {
-            let interval = Date().timeIntervalSince(startDate)
-            let timeString = String(format: "%.02f", Float(interval))
-            timerLabel.text = timeString
-        }
+    @objc internal func update(_ timer: Timer) {
+        guard let startDate = startDate else { return }
+        
+        let interval = Date().timeIntervalSince(startDate)
+        let timeString = String(format: "%.02f", Float(interval))
+        timerLabel.text = timeString
         
         if _config.showsTouchRadius {
             updateSize()
@@ -103,12 +103,11 @@ final public class TouchView: UIImageView {
     }
     
     internal func updateSize() {
-        if let touch = touch {
-            let ratio = touch.majorRadius * 2.0 / _config.defaultSize.width
-            if ratio != previousRatio {
-                layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
-                previousRatio = ratio
-            }
+        guard let touch = touch else { return }
+        let ratio = touch.majorRadius * 2.0 / _config.defaultSize.width
+        if ratio != previousRatio {
+            layer.transform = CATransform3DMakeScale(ratio, ratio, 1.0)
+            previousRatio = ratio
         }
     }
 }
