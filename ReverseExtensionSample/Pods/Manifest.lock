@@ -1,6 +1,6 @@
 PODS:
-  - ReverseExtension (0.2.0)
-  - TouchVisualizer (2.1.0)
+  - ReverseExtension (0.5.0)
+  - TouchVisualizer (3.0.0)
 
 DEPENDENCIES:
   - ReverseExtension (from `../`)
@@ -8,12 +8,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ReverseExtension:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  ReverseExtension: 809a26ac8c65668a669c4122f18926a73cf112fd
-  TouchVisualizer: a67d7b7c2786b6a2e13103fd76ac08093542f0c0
+  ReverseExtension: e658309467ab80870648e32069d14b2ff4a09863
+  TouchVisualizer: 5cb21ff505c4e60166fe0c8e84a82e5d9ee9e64c
 
 PODFILE CHECKSUM: b8298876d13500af76d270fcdd0c8fad6d80316c
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

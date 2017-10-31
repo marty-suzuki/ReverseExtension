@@ -6,7 +6,7 @@
 
 TouchVisualizer is a lightweight pure Swift implementation for visualising touches on the screen.
 
-##Features
+## Features
 - Works with just **a single line of code**!
 - Supports multiple fingers.
 - Supports multiple `UIWindow`'s.
@@ -15,19 +15,19 @@ TouchVisualizer is a lightweight pure Swift implementation for visualising touch
 - Customise the finger-points image and colour.
 - Supports iPhone and iPad in both portrait and landscape mode.
 
-##How it looks
-###Portrait:
+## How it looks
+### Portrait:
 ![one](misc/one.gif)
-###Landscape:
+### Landscape:
 ![two](misc/two.gif)
-###Robots:
+### Robots:
 ![three](misc/three.gif)
-###In-app implementation:
+### In-app implementation:
 ![four](misc/four.gif)
 
 It's fun!
 
-##Runtime Requirements
+## Runtime Requirements
 
 - Swift 3.0
 - Xcode 8.0
@@ -40,7 +40,7 @@ TouchVisualizer works with Swift 3 from version 2.0.1.
 
 **Information:** To use TouchVisualizer with a project targeting iOS 8.0 or lower, you must include the `TouchVisualizer.swift` source file directly in your project.
 
-###Installing with CocoaPods
+### Installing with CocoaPods
 
 [CocoaPods](http://cocoapods.org) is a centralised dependency manager that automates the process of adding libraries to your Cocoa application. You can install it with the following command:
 
@@ -58,7 +58,7 @@ use_frameworks!
 pod "TouchVisualizer", '~>2.0.1'
 ```
 
-###Installing with Carthage
+### Installing with Carthage
 Carthage is a decentralised dependency manager that automates the process of adding frameworks to your Cocoa application.
 
 You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
@@ -74,11 +74,11 @@ To integrate TouchVisualizer into your Xcode project using Carthage, specify it 
 github "morizotter/TouchVisualizer" "2.0.1"
 ```
 
-###Manual Installation
+### Manual Installation
 
 To install TouchVisualizer without a dependency manager, please add all of the files in `/Pod` to your Xcode Project.
 
-##Usage
+## Usage
 
 To start using TouchVisualizer, write the following line wherever you want to start visualising:
 
@@ -97,10 +97,15 @@ and stop the presentation like this:
 ```swift
 Visualizer.stop()
 ```
+Get touch locations by this:
+
+```swift
+Visualizer.getTouches()
+```
 
 It is really simple, isn't it?
 
-##Customisation
+## Customisation
 
 TouchVisualizer also has the ability to customise your touch events. Here is an example of what can be customised:
 
@@ -114,7 +119,7 @@ config.showsLog = true
 Visualizer.start(config)
 ```
 
-###Configuration properties
+### Configuration properties
 
 |name|type|description|default|
 |:----|:----|:----|:----|
@@ -125,20 +130,20 @@ Visualizer.start(config)
 | showsTouchRadius | `Bool` | Shows touch radius by scalling touch point. It doesn't work on simulator. | false |
 | showsLog | `Bool` | Shows log. | false |
 
-##Documentation
-###Peripheral
+## Documentation
+### Peripheral
 
 - [How to take an iOS screen movie](misc/take_a_movie.md)
 
-###Presentation
+### Presentation
 
 - [TouchVisualizer Demo movie #potatotips // Speaker Deck](https://speakerdeck.com/morizotter/touchvisualizer-demo-movie-number-potatotips) @potatotips May 13 2015
 
-##Contributing
+## Contributing
 
 Please file issues or submit pull requests for anything you’d like to see! We're waiting! :)
 
-##Licensing
+## Licensing
 TouchVisualizer is released under the MIT license. Go read the LICENSE file for more information.
-####Miscellaneous
+#### Miscellaneous
 There is a similar *touch visualisation* library called [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer), which is written in Objective-C. [COSTouchVisualizer](https://github.com/conopsys/COSTouchVisualizer) supports earlier versions of iOS and is more mature. If TouchVisualizer isn't enough for you, try that!
