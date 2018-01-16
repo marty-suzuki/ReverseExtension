@@ -213,7 +213,7 @@ extension UITableView {
             return max(0, max(0, (nonNilBase.numberOfSections - 1)) - section)
         }
         
-        func reversedIndexPath(with indexPath: IndexPath, fromReversed reversed: Bool = false) -> IndexPath {
+        public func reversedIndexPath(with indexPath: IndexPath, fromReversed reversed: Bool = false) -> IndexPath {
             let base = nonNilBase
             let section = max(0, max(0, (base.numberOfSections - 1)) - indexPath.section)
             let numberOfRowsInSection = base.numberOfRows(inSection: reversed ? section : indexPath.section)
