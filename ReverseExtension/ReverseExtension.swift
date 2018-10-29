@@ -280,63 +280,63 @@ extension UITableView {
             return base?.footerView(forSection: section)
         }
         
-        public func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        public func scrollToRow(at indexPath: IndexPath, at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
             let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             base?.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
         }
-        
-        public func insertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+
+        public func insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
             let newSections = IndexSet(sections.map { reversedSection(with: $0) })
             base?.insertSections(newSections, with: animation)
         }
-        
-        public func deleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+
+        public func deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
             let newSections = IndexSet(sections.map { reversedSection(with: $0) })
             base?.deleteSections(newSections, with: animation)
         }
-        
-        public func reloadSections(_ sections: IndexSet, with animation: UITableViewRowAnimation) {
+
+        public func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
             let newSections = IndexSet(sections.map { reversedSection(with: $0) })
             base?.reloadSections(newSections, with: animation)
         }
-        
+
         public func moveSection(_ section: Int, toSection newSection: Int) {
             let section = reversedSection(with: section)
             let newSection = reversedSection(with: newSection)
             base?.moveSection(section, toSection: newSection)
         }
-        
-        public func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+
+        public func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
             let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.insertRows(at: newIndexPaths, with: animation)
         }
-        
-        public func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+
+        public func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
             let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.deleteRows(at: newIndexPaths, with: animation)
         }
-        
-        public func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+
+        public func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
             let newIndexPaths = indexPaths.map { reversedIndexPath(with: $0, fromReversed: true) }
             base?.reloadRows(at: newIndexPaths, with: animation)
         }
-        
+
         public func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
             let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             let newIndexPath = reversedIndexPath(with: newIndexPath, fromReversed: true)
             base?.moveRow(at: indexPath, to: newIndexPath)
         }
-        
+
         public var indexPathForSelectedRow: IndexPath? {
             guard let indexPath = base?.indexPathForSelectedRow else { return nil }
             return reversedIndexPath(with: indexPath)
         }
-        
+
         public var indexPathsForSelectedRows: [IndexPath]? {
             return base?.indexPathsForSelectedRows?.map { reversedIndexPath(with: $0) }
         }
-        
-        public func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+
+        public func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
             let newIndexPath: IndexPath?
             if let indexPath = indexPath {
                 newIndexPath = reversedIndexPath(with: indexPath, fromReversed: true)
@@ -345,12 +345,12 @@ extension UITableView {
             }
             base?.selectRow(at: newIndexPath, animated: animated, scrollPosition: scrollPosition)
         }
-        
+
         public func deselectRow(at indexPath: IndexPath, animated: Bool) {
             let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             base?.deselectRow(at: indexPath, animated: animated)
         }
-        
+
         public func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
             let indexPath = reversedIndexPath(with: indexPath, fromReversed: true)
             return nonNilBase.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
@@ -365,7 +365,7 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
         let maxScrollDistance = max(0, scrollView.contentSize.height - scrollView.bounds.size.height)
         reachedTop = scrollView.contentOffset.y >= maxScrollDistance && hasContent
     }
-    
+
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let frameObserver = KeyValueObserver(tareget: cell, forKeyPath: #keyPath(UITableView.frame))
         frameObserver.didChange = { [weak self] object, change in
@@ -387,7 +387,7 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             UIView.setAnimationsEnabled(true)
         }
     }
-    
+
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if view.transform == CGAffineTransform.identity {
             UIView.setAnimationsEnabled(false)
@@ -395,7 +395,7 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             UIView.setAnimationsEnabled(true)
         }
     }
-    
+
     public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if view.transform == CGAffineTransform.identity {
             UIView.setAnimationsEnabled(false)
@@ -410,14 +410,14 @@ extension UITableView.ReverseExtension: UITableViewDataSource {
         guard let dataSource = dataSource else { fatalError("dataSource is nil") }
         return dataSource.tableView(tableView, numberOfRowsInSection: reversedSection(with: section))
     }
-    
+
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let dataSource = dataSource else { fatalError("dataSource is nil") }
         return dataSource.tableView(tableView, cellForRowAt: reversedIndexPath(with: indexPath))
     }
-    
+
     public func numberOfSections(in tableView: UITableView) -> Int {// Default is 1 if not implemented
         return dataSource?.numberOfSections?(in: tableView) ?? 1
     }
@@ -426,42 +426,42 @@ extension UITableView.ReverseExtension: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataSource?.tableView?(tableView, titleForFooterInSection: reversedSection(with: section))
     }
-    
+
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return dataSource?.tableView?(tableView, titleForHeaderInSection: reversedSection(with: section))
     }
-    
+
     // Editing
-    
+
     // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return dataSource?.tableView?(tableView, canEditRowAt: reversedIndexPath(with: indexPath)) ?? true
     }
-    
+
     // Moving/reordering
-    
+
     // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
     public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return dataSource?.tableView?(tableView, canMoveRowAt: reversedIndexPath(with: indexPath)) ?? false
     }
-    
+
     // Index
-    
+
     // return list of section titles to display in section index view (e.g. "ABCD...Z#")
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return dataSource?.sectionIndexTitles?(for: tableView)?.reversed()
     }
-    
+
     // tell table which section corresponds to section title/index (e.g. "B",1))
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return dataSource?.tableView?(tableView, sectionForSectionIndexTitle: title, at: reversedSection(with: index)) ?? index
     }
-    
+
     // Data manipulation - insert and delete support
-    
+
     // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
     // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         dataSource?.tableView?(tableView, commit: editingStyle, forRowAt: reversedIndexPath(with: indexPath))
     }
     
