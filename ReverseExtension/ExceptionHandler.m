@@ -16,7 +16,7 @@ NSInteger const NSExceptionCode = -9999;
 
 static NSString *const kNSExceptionDomainError = @"NSExceptionDomainError";
 
-+ (BOOL)catchExceptionWithTryBlock:(__attribute__((noescape)) void(^ _Nonnull)())tryBlock error:(NSError * _Nullable __autoreleasing * _Nullable)error {
++ (BOOL)catchExceptionWithTryBlock:(__attribute__((noescape)) void(^ _Nonnull)(void))tryBlock error:(NSError * _Nullable __autoreleasing * _Nullable)error {
     @try {
         tryBlock();
         return YES;
