@@ -13,5 +13,5 @@ FOUNDATION_EXPORT NSString *_Nonnull const NSExceptionNameKey;
 FOUNDATION_EXPORT NSInteger const NSExceptionCode;
 
 @interface ExceptionHandler : NSObject
-+ (BOOL)catchExceptionWithTryBlock:(__attribute__((noescape)) void(^ _Nonnull)())tryBlock error:(NSError * _Nullable __autoreleasing * _Nullable)error;
++ (BOOL)catchExceptionWithTryBlock:(__attribute__((noescape)) void(^ _Nonnull)(void))tryBlock error:(NSError * _Nullable __autoreleasing * _Nullable)error;
 @end
