@@ -19,11 +19,11 @@ final public class Visualizer:NSObject {
       super.init()
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         UIDevice
             .current
@@ -126,7 +126,7 @@ extension Visualizer {
         return nil
     }
     
-    open func handleEvent(_ event: UIEvent) {
+    public func handleEvent(_ event: UIEvent) {
         if event.type != .touches {
             return
         }
@@ -220,7 +220,7 @@ extension Visualizer {
         
         for viewLog in viewLogs {
             
-            if (viewLog["index"]!).characters.count == 0 {
+            if (viewLog["index"]!).count == 0 {
                 continue
             }
             
