@@ -27,7 +27,7 @@ public struct Configuration {
         UIGraphicsEndImageContext()
 
         return image?.withRenderingMode(.alwaysTemplate)
-        }()
+    }()
 
     /**
     Default touch point size. If `showsTouchRadius` is enabled, this value is ignored
