@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/marty_suzuki'
   s.ios.deployment_target = '10.0'
   s.source_files = 'ReverseExtension/*.{swift,h,m}'
+  s.swift_version = '5.0'
 end
