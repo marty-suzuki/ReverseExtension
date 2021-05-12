@@ -109,7 +109,6 @@
 				9D17DB4D1E669E2200282636 /* Frameworks */,
 				9D17DB4E1E669E2200282636 /* Resources */,
 				9AD922D2A86C727C63B1CEB9 /* [CP] Embed Pods Frameworks */,
-				45D0F32615599EAA54ABFA92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,28 +187,13 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		45D0F32615599EAA54ABFA92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9AD922D2A86C727C63B1CEB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/TouchVisualizer/TouchVisualizer.framework",
 			);
@@ -220,7 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReverseExtensionSample/Pods-ReverseExtensionSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

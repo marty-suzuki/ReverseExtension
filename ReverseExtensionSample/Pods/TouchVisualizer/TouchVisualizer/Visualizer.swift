@@ -19,11 +19,11 @@ final public class Visualizer:NSObject {
       super.init()
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.orientationDidChangeNotification(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         NotificationCenter
             .default
-            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+            .addObserver(self, selector: #selector(Visualizer.applicationDidBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         UIDevice
             .current
@@ -47,6 +47,12 @@ final public class Visualizer:NSObject {
         let instance = Visualizer.sharedInstance
         for touch in instance.touchViews {
             touch.removeFromSuperview()
+        }
+    }
+    
+    public func removeAllTouchViews() {
+        for view in self.touchViews {
+            view.removeFromSuperview()
         }
     }
 }
@@ -126,7 +132,7 @@ extension Visualizer {
         return nil
     }
     
-    open func handleEvent(_ event: UIEvent) {
+    public func handleEvent(_ event: UIEvent) {
         if event.type != .touches {
             return
         }
@@ -141,10 +147,9 @@ extension Visualizer {
                 topWindow = window
             }
         }
-
+        
         for touch in event.allTouches! {
             let phase = touch.phase
-            
             switch phase {
             case .began:
                 let view = dequeueTouchView()
@@ -153,35 +158,33 @@ extension Visualizer {
                 view.beginTouch()
                 view.center = touch.location(in: topWindow)
                 topWindow.addSubview(view)
-                log(touch)
             case .moved:
                 if let view = findTouchView(touch) {
                     view.center = touch.location(in: topWindow)
                 }
-                
-                log(touch)
-            case .stationary:
-                log(touch)
             case .ended, .cancelled:
                 if let view = findTouchView(touch) {
                     UIView.animate(withDuration: 0.2, delay: 0.0, options: .allowUserInteraction, animations: { () -> Void  in
                         view.alpha = 0.0
                         view.endTouch()
-                        }, completion: { [unowned self] (finished) -> Void in
-                            view.removeFromSuperview()
-                            self.log(touch)
-                        })
+                    }, completion: { [unowned self] (finished) -> Void in
+                        view.removeFromSuperview()
+                        self.log(touch)
+                    })
                 }
-                
-                log(touch)
+            case .stationary, .regionEntered, .regionMoved, .regionExited:
+                break
+            @unknown default:
+                break
             }
+            log(touch)
         }
     }
 }
 
 extension Visualizer {
     public func warnIfSimulator() {
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
             print("[TouchVisualizer] Warning: TouchRadius doesn't work on the simulator because it is not possible to read touch radius on it.", terminator: "")
         #endif
     }
@@ -207,6 +210,10 @@ extension Visualizer {
             case .stationary: phase = "S"
             case .ended: phase = "E"
             case .cancelled: phase = "C"
+            case .regionEntered: phase = "REN"
+            case .regionMoved: phase = "RM"
+            case .regionExited: phase = "REX"
+            @unknown default: phase = "U"
             }
             
             let x = String(format: "%.02f", view.center.x)
@@ -220,7 +227,7 @@ extension Visualizer {
         
         for viewLog in viewLogs {
             
-            if (viewLog["index"]!).characters.count == 0 {
+            if (viewLog["index"]!).count == 0 {
                 continue
             }
             
