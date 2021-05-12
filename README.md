@@ -60,9 +60,9 @@ extension ViewController: UITableViewDelegate {
 
 ## Requirements
 
-- Swift 4
-- Xcode 9 or greater
-- iOS 8.0 or greater
+- Swift 5
+- Xcode 12 or greater
+- iOS 10 or greater
 
 ## Installation
 
