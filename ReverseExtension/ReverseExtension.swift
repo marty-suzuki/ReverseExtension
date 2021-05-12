@@ -40,29 +40,29 @@ extension UITableView {
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if newSuperview == nil && isReversed {
-            re.contentInsetObserver = nil
+            re.contentInsetObservation = nil
         }
     }
 }
 
 extension UITableViewCell {
     private struct AssociatedKey {
-        static var frameObserver: UInt8 = 0
+        static var frameObservation: UInt8 = 0
     }
     
-    var frameObserver: KeyValueObserver? {
+    var frameObservation: NSKeyValueObservation? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKey.frameObserver) as? KeyValueObserver
+            return objc_getAssociatedObject(self, &AssociatedKey.frameObservation) as? NSKeyValueObservation
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKey.frameObserver, newValue, .OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &AssociatedKey.frameObservation, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         guard let _ = newSuperview else {
-            frameObserver = nil
+            frameObservation = nil
             return
         }
     }
@@ -72,21 +72,22 @@ extension UITableView {
     public final class ReverseExtension: NSObject {
         private(set) weak var base: UITableView?
         fileprivate var nonNilBase: UITableView {
-            guard let base = base else { fatalError("base is nil") }
-            return base
+            base ?? { fatalError("base is nil") }()
         }
         
-        //MARK: Delegate
-        private var delegateTransporter: UITableViewDelegateTransporter? {
-            didSet { base?.delegate = delegateTransporter }
+        // MARK: - Delegate
+        private var delegateProxy: UITableViewDelegateProxy? {
+            didSet {
+                base?.delegate = delegateProxy
+            }
         }
         public weak var delegate: UITableViewDelegate? {
             didSet {
                 guard let delegate = delegate else {
-                    delegateTransporter = nil
+                    delegateProxy = nil
                     return
                 }
-                delegateTransporter = UITableViewDelegateTransporter(delegates: [delegate, self])
+                delegateProxy = UITableViewDelegateProxy(delegates: [delegate, self])
             }
         }
         public weak var dataSource: UITableViewDataSource? {
@@ -95,10 +96,8 @@ extension UITableView {
             }
         }
         
-        //MARK: - reachedBottom
-        private lazy var _reachedBottom: Bool = {
-            return base.map { $0.contentOffset.y <= 0 } ?? false
-        }()
+        // MARK: - reachedBottom
+        private lazy var _reachedBottom: Bool = base.map { $0.contentOffset.y <= 0 } ?? false
         fileprivate(set) var reachedBottom: Bool {
             set {
                 let oldValue = _reachedBottom
@@ -108,15 +107,14 @@ extension UITableView {
                 scrollViewDidReachBottom?(base)
             }
             get {
-                return _reachedBottom
+                _reachedBottom
             }
         }
         public var scrollViewDidReachBottom: ((UIScrollView) -> ())?
         
-        //MARK: - reachedTop
-        private lazy var _reachedTop: Bool = {
-            return base.map { $0.contentOffset.y >= max(0, $0.contentSize.height - $0.bounds.size.height) } ?? false
-        }()
+        // MARK: - reachedTop
+        private lazy var _reachedTop = base
+            .map { $0.contentOffset.y >= max(0, $0.contentSize.height - $0.bounds.size.height) } ?? false
         fileprivate(set) var reachedTop: Bool {
             set {
                 let oldValue = _reachedTop
@@ -134,22 +132,24 @@ extension UITableView {
         private var lastScrollIndicatorInsets: UIEdgeInsets?
         private var lastContentInset: UIEdgeInsets?
         private var mutex = pthread_mutex_t()
-        fileprivate lazy var contentInsetObserver: KeyValueObserver? = {
-            guard let base = self.base else { return nil }
-            let keyPath: String
-            if #available(iOS 11, *) {
-                keyPath = #keyPath(UITableView.safeAreaInsets)
-            } else {
-                keyPath = #keyPath(UITableView.contentInset)
+        fileprivate lazy var contentInsetObservation: NSKeyValueObservation? = base.map { base in
+            let changeHandler: (UITableView, NSKeyValueObservedChange<UIEdgeInsets>) -> Void = { [weak self] _, _ in
+                DispatchQueue.main.async {
+                    self?.configureTableViewInsets()
+                }
             }
-            return KeyValueObserver(tareget: base, forKeyPath: keyPath)
-        }()
+            if #available(iOS 11, *) {
+                return base.observe(\.safeAreaInsets, options: .new, changeHandler: changeHandler)
+            } else {
+                return base.observe(\.contentInset, options: .new, changeHandler: changeHandler)
+            }
+        }
         
         deinit {
             pthread_mutex_destroy(&mutex)
         }
         
-        //MARK: - Initializer
+        // MARK: - Initializer
         fileprivate init(_ base: UITableView) {
             self.base = base
             super.init()
@@ -157,16 +157,12 @@ extension UITableView {
             configureTableView(base)
         }
         
-        //MARK: - UITableView configuration
+        // MARK: - UITableView configuration
         private func configureTableView(_ tableView: UITableView) {
             if tableView.transform == CGAffineTransform.identity {
                 tableView.transform = CGAffineTransform.identity.rotated(by: .pi)
             }
-            contentInsetObserver?.didChange = { [weak self] _, _ in
-                DispatchQueue.main.async {
-                    self?.configureTableViewInsets()
-                }
-            }
+            _ = contentInsetObservation
         }
         
         private func configureTableViewInsets() {
@@ -208,7 +204,7 @@ extension UITableView {
             }
         }
         
-        //MARK: Reverse method
+        // MARK: - Reverse method
         func reversedSection(with section: Int) -> Int {
             return max(0, max(0, (nonNilBase.numberOfSections - 1)) - section)
         }
@@ -221,7 +217,7 @@ extension UITableView {
             return IndexPath(row: row, section: section)
         }
         
-        //MAKR: - UITableView Proxy
+        // MAKR: - UITableView Proxy
         public func numberOfRows(inSection section: Int) -> Int {
             let section = reversedSection(with: section)
             return nonNilBase.numberOfRows(inSection: section)
@@ -367,20 +363,18 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let frameObserver = KeyValueObserver(tareget: cell, forKeyPath: #keyPath(UITableView.frame))
-        frameObserver.didChange = { [weak self] object, change in
-            guard let change = change else { return }
+        cell.frameObservation = cell.observe(\.frame, options: .new) { [weak self] cell, change in
             DispatchQueue.global().async {
-                guard let x = (change[.newKey] as? NSValue)?.cgRectValue.origin.x, x > 0,
-                    let cell = object as? UITableViewCell
-                else { return }
+                guard let x = change.newValue?.origin.x, x > 0 else {
+                    return
+                }
                 let time = DispatchTime.now() + .milliseconds(10)
                 DispatchQueue.global().asyncAfter(deadline: time) { [weak cell] in
                     self?.configureCell(cell)
                 }
             }
         }
-        cell.frameObserver = frameObserver
+        
         if cell.contentView.transform == CGAffineTransform.identity {
             UIView.setAnimationsEnabled(false)
             cell.contentView.transform = CGAffineTransform.identity.rotated(by: .pi)

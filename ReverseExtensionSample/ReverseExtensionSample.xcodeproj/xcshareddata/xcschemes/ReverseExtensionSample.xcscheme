@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1240"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D9DC60324F952EF1F7019E52E8F7F14"
-               BuildableName = "ReverseExtension.framework"
-               BlueprintName = "ReverseExtension"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "9D17DB4F1E669E2200282636"
+               BuildableName = "ReverseExtensionSample.app"
+               BlueprintName = "ReverseExtensionSample"
+               ReferencedContainer = "container:ReverseExtensionSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9D17DB4F1E669E2200282636"
+            BuildableName = "ReverseExtensionSample.app"
+            BlueprintName = "ReverseExtensionSample"
+            ReferencedContainer = "container:ReverseExtensionSample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9D17DB4F1E669E2200282636"
+            BuildableName = "ReverseExtensionSample.app"
+            BlueprintName = "ReverseExtensionSample"
+            ReferencedContainer = "container:ReverseExtensionSample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

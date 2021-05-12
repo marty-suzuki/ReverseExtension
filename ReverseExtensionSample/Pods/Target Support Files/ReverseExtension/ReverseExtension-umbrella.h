@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "DelegateTransporter.h"
-#import "ExceptionHandler.h"
+#import "DelegateProxyBase.h"
 
 FOUNDATION_EXPORT double ReverseExtensionVersionNumber;
 FOUNDATION_EXPORT const unsigned char ReverseExtensionVersionString[];

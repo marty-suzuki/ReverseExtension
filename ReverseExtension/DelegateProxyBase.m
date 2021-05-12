@@ -1,18 +1,18 @@
 //
-//  DelegateTransporter.m
+//  DelegateProxyBase.m
 //  ReverseExtension
 //
 //  Created by marty-suzuki on 2017/03/01.
 //
 //
 
-#import "DelegateTransporter.h"
+#import "DelegateProxyBase.h"
 
-@interface DelegateTransporter ()
+@interface DelegateProxyBase ()
 @property (nonnull, nonatomic, strong) NSHashTable<NSObject *> *delegates;
 @end
 
-@implementation DelegateTransporter
+@implementation DelegateProxyBase
 
 - (instancetype)initWithDelegates:(NSArray<id> *)delegates {
     self = [super init];
