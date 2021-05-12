@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        tableView.re.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
         //You can apply reverse effect only set delegate.
