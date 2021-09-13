@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DenyDelegateMethod.h"
 
 @interface DelegateProxyBase : NSObject
-- (nonnull instancetype)initWithDelegates:(NSArray<id> * __nonnull)delegates NS_REFINED_FOR_SWIFT;
+- (nonnull instancetype)initWithDelegates: (NSArray<id> * __nonnull)delegates
+                                 denyList: (NSArray<DenyDelegateMethod *> * __nonnull)denyList NS_REFINED_FOR_SWIFT;
 @end

@@ -11,6 +11,7 @@
 #endif
 
 #import "DelegateProxyBase.h"
+#import "DenyDelegateMethod.h"
 
 FOUNDATION_EXPORT double ReverseExtensionVersionNumber;
 FOUNDATION_EXPORT const unsigned char ReverseExtensionVersionString[];

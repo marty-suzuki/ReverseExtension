@@ -87,7 +87,32 @@ extension UITableView {
                     delegateProxy = nil
                     return
                 }
-                delegateProxy = UITableViewDelegateProxy(delegates: [delegate, self])
+
+                delegateProxy = UITableViewDelegateProxy(
+                    delegates: [delegate, self],
+                    denyList: denied(delegate) {
+                        let newerDenyList: [Selector]
+                        if #available(iOS 11, *) {
+                            newerDenyList = [
+                                #selector($0.tableView(_:trailingSwipeActionsConfigurationForRowAt:)),
+                                #selector($0.tableView(_:leadingSwipeActionsConfigurationForRowAt:))
+                            ]
+                        } else {
+                            newerDenyList = []
+                        }
+                        return [
+                            #selector($0.tableView(_:willDisplay:forRowAt:)),
+                            #selector($0.tableView(_:willDisplayHeaderView:forSection:)),
+                            #selector($0.tableView(_:willDisplayFooterView:forSection:)),
+                            #selector($0.tableView(_:heightForHeaderInSection:)),
+                            #selector($0.tableView(_:estimatedHeightForFooterInSection:)),
+                            #selector($0.tableView(_:editingStyleForRowAt:)),
+                            #selector($0.tableView(_:viewForHeaderInSection:)),
+                            #selector($0.tableView(_:viewForFooterInSection:)),
+                            #selector($0.tableView(_:didSelectRowAt:))
+                        ] + newerDenyList
+                    }
+                )
             }
         }
         public weak var dataSource: UITableViewDataSource? {
@@ -148,7 +173,14 @@ extension UITableView {
         deinit {
             pthread_mutex_destroy(&mutex)
         }
-        
+
+        private func denied<T: NSObjectProtocol>(
+            _ delegate: T,
+            selector: (T) -> [Selector]
+        ) -> [DenyDelegateMethod] {
+            selector(delegate).map { DenyDelegateMethod(delegate: delegate, selector: $0) }
+        }
+
         // MARK: - Initializer
         fileprivate init(_ base: UITableView) {
             self.base = base

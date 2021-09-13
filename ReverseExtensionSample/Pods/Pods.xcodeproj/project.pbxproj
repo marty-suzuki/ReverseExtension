@@ -7,34 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E262E948FA341724D8AB7017A111B12 /* UITableViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C9052B13736496BD0270723A054DDE /* UITableViewDelegateProxy.swift */; };
+		201B62C71D9391053DDAF8E18B5712C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		2C4AE75E61A0D850D7B67FD8154B646E /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EA14DD00554C7CF7000BAD848C01F /* TouchView.swift */; };
-		32048EBCBD909D7F39E558624D5429D1 /* ReverseExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58FFADBD68CA73C8726C0C69D73229 /* ReverseExtension-dummy.m */; };
+		3191C71324C6F9CD1E65C6068300E92F /* DelegateProxyBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF8405249F369145BD5BE740443BAA /* DelegateProxyBase.m */; };
+		340E6FCA9BE6696A683935689A252235 /* ReverseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6B3AB204ADC70BE3C773053A481E6 /* ReverseExtension.swift */; };
+		341E532EE03971BB8071B9CA962CF9B7 /* ReverseExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326C1CD5B8BE36129CF8390446407B5 /* ReverseExtension-dummy.m */; };
 		5F2B5FED99F618DE98CC78D3E8C4725D /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6052E97D806F3EF6D3698AD3AF0D9D /* UIWindow+Swizzle.swift */; };
-		671B8E7630C9C934D04C05952F0B97CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		7115069E1930304EF8F631878FE595E2 /* ReverseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13B982DBDBDA8BBC08AFE006719B51D /* ReverseExtension.swift */; };
-		77AD90766928E6D706B58B6C8C9948B0 /* ReverseExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8EA758C03577645B6E19AFE854C2988 /* ReverseExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F4ED561DFFDB39BEB94B860420371DA /* ReverseExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 72CD8C3EF747FD02132604E0E1344F2E /* ReverseExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2150CE6EDA4BA5FABD4D1B8B1CA2CC9 /* TouchVisualizer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FA540BB70F9B5D11F2A5BC8619548D /* TouchVisualizer-dummy.m */; };
-		C1432C12F1DA8D80944F00750BDF5045 /* DelegateProxyBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB5B7DEB29708AAC2D3A60B408F070 /* DelegateProxyBase.m */; };
+		AFFD6AED5FBAF847027E4CCBD687A043 /* UITableViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F32C2A4D400C8B981194D133B8C9766 /* UITableViewDelegateProxy.swift */; };
+		B4EEAB258410C66A3F192DD5AFC1A219 /* DenyDelegateMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 6482B25543302C4485615D5B405240CA /* DenyDelegateMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B737E02AF3392F5A78F862DA2857EA8D /* DenyDelegateMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC06A1D3C1605132482FE28916C1BE3 /* DenyDelegateMethod.m */; };
+		D1D72A503609B45999DBA4611CC002E8 /* DelegateProxyBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E63C8C25DEA8E6E59669880369620406 /* DelegateProxyBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E22127D806E2147CB842D3100CDF8C07 /* Pods-ReverseExtensionSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 539583DEC608817F305A82FDBC64640F /* Pods-ReverseExtensionSample-dummy.m */; };
 		E37B924CDDE1D94DF496FCC953DBAA32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		E4CB86DA360A1109B14BFEB691A67F07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		E57161A10AEE628E7414344547CF09B7 /* Pods-ReverseExtensionSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 821F384F5017E9F21851623D7DE42E8C /* Pods-ReverseExtensionSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7D35E7BA3A5965F2831537FA7B45050 /* TouchVisualizer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85024DA1A119DE59A341794EE17B6A4A /* TouchVisualizer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6EFE7C599E1EDC7BD8864FED7FCB6E4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96B2BF83287FAC3F53A78211DE2570 /* Configuration.swift */; };
-		FA1A1E50A0930FDE1BAE9777370403B4 /* DelegateProxyBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A0A3741304DAB4B7CB93862862C0D7 /* DelegateProxyBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEB37233939C2991C934E8E26FA3C158 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B7EAB4E01BCF24473CCA583F4BF44 /* Visualizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BF0BFD8F3551FAF69A33E3B92D889ACD /* PBXContainerItemProxy */ = {
+		AE9DA0845F8D0829B64D41AFBF0B7344 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F89A2D2E64741639216A7211115C72E2;
 			remoteInfo = TouchVisualizer;
 		};
-		C09CB9D9EE6D2B3B04CE640FF03B2950 /* PBXContainerItemProxy */ = {
+		BCB5E3FA717A0F1F52EA25B7995C8630 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -45,44 +47,46 @@
 
 /* Begin PBXFileReference section */
 		094B663FBE595D618B5C782AEBAC6445 /* Pods-ReverseExtensionSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReverseExtensionSample-acknowledgements.plist"; sourceTree = "<group>"; };
-		16C9052B13736496BD0270723A054DDE /* UITableViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewDelegateProxy.swift; path = ReverseExtension/UITableViewDelegateProxy.swift; sourceTree = "<group>"; };
-		214F56A50CBD09D6272FB725657F209A /* ReverseExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-prefix.pch"; sourceTree = "<group>"; };
-		2A67575C75A6D760E3672B91F536EA49 /* ReverseExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ReverseExtension-Info.plist"; sourceTree = "<group>"; };
-		2F7081F696D01AE6E95553460303E0D4 /* ReverseExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.release.xcconfig; sourceTree = "<group>"; };
-		3A58FFADBD68CA73C8726C0C69D73229 /* ReverseExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReverseExtension-dummy.m"; sourceTree = "<group>"; };
-		3FEB5B7DEB29708AAC2D3A60B408F070 /* DelegateProxyBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DelegateProxyBase.m; path = ReverseExtension/DelegateProxyBase.m; sourceTree = "<group>"; };
+		15B6B3AB204ADC70BE3C773053A481E6 /* ReverseExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReverseExtension.swift; path = ReverseExtension/ReverseExtension.swift; sourceTree = "<group>"; };
+		1A78DE1E5147A79FEC7A26AC8B8719B4 /* ReverseExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ReverseExtension-Info.plist"; sourceTree = "<group>"; };
+		2EF1C03107C3B41D851851F2125DBADE /* ReverseExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-prefix.pch"; sourceTree = "<group>"; };
 		447C52B3A6E1491A9D9FC14418556B4C /* Pods-ReverseExtensionSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReverseExtensionSample-frameworks.sh"; sourceTree = "<group>"; };
-		44F44AA2ED67502BA6D251667073CDFF /* Pods_ReverseExtensionSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReverseExtensionSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44F44AA2ED67502BA6D251667073CDFF /* Pods_ReverseExtensionSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReverseExtensionSample.framework; path = "Pods-ReverseExtensionSample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		468339EB214E3FC5E0B95C84AF19DE23 /* ReverseExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReverseExtension.modulemap; sourceTree = "<group>"; };
 		50E81D915E1ED4F4F6A7300FB0B4236B /* TouchVisualizer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TouchVisualizer-prefix.pch"; sourceTree = "<group>"; };
 		519B7EAB4E01BCF24473CCA583F4BF44 /* Visualizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Visualizer.swift; path = TouchVisualizer/Visualizer.swift; sourceTree = "<group>"; };
 		539583DEC608817F305A82FDBC64640F /* Pods-ReverseExtensionSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseExtensionSample-dummy.m"; sourceTree = "<group>"; };
-		5437E78D8851C8ADC1C936281BEF1905 /* ReverseExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.debug.xcconfig; sourceTree = "<group>"; };
+		542C54639B861874A3A265ECD80A293F /* ReverseExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.debug.xcconfig; sourceTree = "<group>"; };
 		5C6E9349566414548656A23D2C4BBFA4 /* TouchVisualizer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TouchVisualizer-Info.plist"; sourceTree = "<group>"; };
-		65701223E47D1106EED1E4517578C59D /* ReverseExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReverseExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6326C1CD5B8BE36129CF8390446407B5 /* ReverseExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReverseExtension-dummy.m"; sourceTree = "<group>"; };
+		6482B25543302C4485615D5B405240CA /* DenyDelegateMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DenyDelegateMethod.h; path = ReverseExtension/DenyDelegateMethod.h; sourceTree = "<group>"; };
+		65701223E47D1106EED1E4517578C59D /* ReverseExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReverseExtension.framework; path = ReverseExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68AFE264100F836B42CA89A72153BD44 /* TouchVisualizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TouchVisualizer.debug.xcconfig; sourceTree = "<group>"; };
+		6AFEA89CB3B7D857D45EEF3BD610AD53 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6E0469FD632B14F28D9FFC52F0507D3C /* ReverseExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReverseExtension.release.xcconfig; sourceTree = "<group>"; };
 		6F9C0495C1E5B76ACA6B6CB37E8EE0D8 /* Pods-ReverseExtensionSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReverseExtensionSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		72CD8C3EF747FD02132604E0E1344F2E /* ReverseExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7FBC77AA391B6CEB4EBCB05F862000EE /* ReverseExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReverseExtension.modulemap; sourceTree = "<group>"; };
+		7F32C2A4D400C8B981194D133B8C9766 /* UITableViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewDelegateProxy.swift; path = ReverseExtension/UITableViewDelegateProxy.swift; sourceTree = "<group>"; };
 		821F384F5017E9F21851623D7DE42E8C /* Pods-ReverseExtensionSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseExtensionSample-umbrella.h"; sourceTree = "<group>"; };
 		85024DA1A119DE59A341794EE17B6A4A /* TouchVisualizer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TouchVisualizer-umbrella.h"; sourceTree = "<group>"; };
-		8A37E2587439714D0F4B246C441B660E /* TouchVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AA4A5A38C2D18E592D3A30A94071391 /* ReverseExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ReverseExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8B2CBED3D76A6E7D966FE34E78C1B6D4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8A37E2587439714D0F4B246C441B660E /* TouchVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TouchVisualizer.framework; path = TouchVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FA540BB70F9B5D11F2A5BC8619548D /* TouchVisualizer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TouchVisualizer-dummy.m"; sourceTree = "<group>"; };
 		98295F7099A3CB1FAD76A1CAA20F0D2B /* Pods-ReverseExtensionSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseExtensionSample.release.xcconfig"; sourceTree = "<group>"; };
-		99A0A3741304DAB4B7CB93862862C0D7 /* DelegateProxyBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DelegateProxyBase.h; path = ReverseExtension/DelegateProxyBase.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D8590D1D3E0239BB302FC66926C52C5 /* ReverseExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ReverseExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E6052E97D806F3EF6D3698AD3AF0D9D /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIWindow+Swizzle.swift"; path = "TouchVisualizer/UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
+		9F9E7DB4C89C81242D28175C3BB2273A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		A14EA14DD00554C7CF7000BAD848C01F /* TouchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TouchView.swift; path = TouchVisualizer/TouchView.swift; sourceTree = "<group>"; };
 		A44EB2604D7CC4EC191F9B0D7F6A8A4A /* Pods-ReverseExtensionSample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReverseExtensionSample-Info.plist"; sourceTree = "<group>"; };
-		ABE9C1A978F48B9E12AB90C7CCCDE733 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B16804D96F17CC5D527F30AC12441A6D /* TouchVisualizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TouchVisualizer.release.xcconfig; sourceTree = "<group>"; };
 		B4B2D6E9B04B3524CA2A77F608F38690 /* Pods-ReverseExtensionSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseExtensionSample.debug.xcconfig"; sourceTree = "<group>"; };
-		C13B982DBDBDA8BBC08AFE006719B51D /* ReverseExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReverseExtension.swift; path = ReverseExtension/ReverseExtension.swift; sourceTree = "<group>"; };
-		C8EA758C03577645B6E19AFE854C2988 /* ReverseExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReverseExtension-umbrella.h"; sourceTree = "<group>"; };
+		BBC06A1D3C1605132482FE28916C1BE3 /* DenyDelegateMethod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DenyDelegateMethod.m; path = ReverseExtension/DenyDelegateMethod.m; sourceTree = "<group>"; };
+		D5BF8405249F369145BD5BE740443BAA /* DelegateProxyBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DelegateProxyBase.m; path = ReverseExtension/DelegateProxyBase.m; sourceTree = "<group>"; };
 		D7011F69B789AEEB38925DA75C5DC491 /* TouchVisualizer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TouchVisualizer.modulemap; sourceTree = "<group>"; };
 		DB96B2BF83287FAC3F53A78211DE2570 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = TouchVisualizer/Configuration.swift; sourceTree = "<group>"; };
 		DCFDB1AE57D218BF279BD7A3FF3D2ACD /* Pods-ReverseExtensionSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ReverseExtensionSample.modulemap"; sourceTree = "<group>"; };
+		E63C8C25DEA8E6E59669880369620406 /* DelegateProxyBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DelegateProxyBase.h; path = ReverseExtension/DelegateProxyBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +98,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4540DB2549476CDDFF2EAC290484FF0 /* Frameworks */ = {
+		3447B88DAA66A630654581748E773F94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671B8E7630C9C934D04C05952F0B97CA /* Foundation.framework in Frameworks */,
+				201B62C71D9391053DDAF8E18B5712C0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,18 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E5DD957E33A85863734315C82334043 /* ReverseExtension */ = {
+		23981D63EEFE7C8013AA1AC5DEA8004B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				99A0A3741304DAB4B7CB93862862C0D7 /* DelegateProxyBase.h */,
-				3FEB5B7DEB29708AAC2D3A60B408F070 /* DelegateProxyBase.m */,
-				C13B982DBDBDA8BBC08AFE006719B51D /* ReverseExtension.swift */,
-				16C9052B13736496BD0270723A054DDE /* UITableViewDelegateProxy.swift */,
-				81CDA3D0CEC72F814D1169A6D9C6D2A5 /* Pod */,
-				60564F8B31B9597447A89E8AA84369A7 /* Support Files */,
+				468339EB214E3FC5E0B95C84AF19DE23 /* ReverseExtension.modulemap */,
+				6326C1CD5B8BE36129CF8390446407B5 /* ReverseExtension-dummy.m */,
+				1A78DE1E5147A79FEC7A26AC8B8719B4 /* ReverseExtension-Info.plist */,
+				2EF1C03107C3B41D851851F2125DBADE /* ReverseExtension-prefix.pch */,
+				72CD8C3EF747FD02132604E0E1344F2E /* ReverseExtension-umbrella.h */,
+				542C54639B861874A3A265ECD80A293F /* ReverseExtension.debug.xcconfig */,
+				6E0469FD632B14F28D9FFC52F0507D3C /* ReverseExtension.release.xcconfig */,
 			);
-			name = ReverseExtension;
-			path = ../..;
+			name = "Support Files";
+			path = "ReverseExtensionSample/Pods/Target Support Files/ReverseExtension";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -133,21 +138,6 @@
 				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		60564F8B31B9597447A89E8AA84369A7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7FBC77AA391B6CEB4EBCB05F862000EE /* ReverseExtension.modulemap */,
-				3A58FFADBD68CA73C8726C0C69D73229 /* ReverseExtension-dummy.m */,
-				2A67575C75A6D760E3672B91F536EA49 /* ReverseExtension-Info.plist */,
-				214F56A50CBD09D6272FB725657F209A /* ReverseExtension-prefix.pch */,
-				C8EA758C03577645B6E19AFE854C2988 /* ReverseExtension-umbrella.h */,
-				5437E78D8851C8ADC1C936281BEF1905 /* ReverseExtension.debug.xcconfig */,
-				2F7081F696D01AE6E95553460303E0D4 /* ReverseExtension.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "ReverseExtensionSample/Pods/Target Support Files/ReverseExtension";
 			sourceTree = "<group>";
 		};
 		726E825FA998EAFC993860974A9C48C5 /* Products */ = {
@@ -160,12 +150,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81CDA3D0CEC72F814D1169A6D9C6D2A5 /* Pod */ = {
+		77493DB439EE7117936307B6B05CA988 /* ReverseExtension */ = {
 			isa = PBXGroup;
 			children = (
-				8B2CBED3D76A6E7D966FE34E78C1B6D4 /* LICENSE */,
-				ABE9C1A978F48B9E12AB90C7CCCDE733 /* README.md */,
-				8AA4A5A38C2D18E592D3A30A94071391 /* ReverseExtension.podspec */,
+				E63C8C25DEA8E6E59669880369620406 /* DelegateProxyBase.h */,
+				D5BF8405249F369145BD5BE740443BAA /* DelegateProxyBase.m */,
+				6482B25543302C4485615D5B405240CA /* DenyDelegateMethod.h */,
+				BBC06A1D3C1605132482FE28916C1BE3 /* DenyDelegateMethod.m */,
+				15B6B3AB204ADC70BE3C773053A481E6 /* ReverseExtension.swift */,
+				7F32C2A4D400C8B981194D133B8C9766 /* UITableViewDelegateProxy.swift */,
+				88A132BF134826CB9A51218C3883ACD0 /* Pod */,
+				23981D63EEFE7C8013AA1AC5DEA8004B /* Support Files */,
+			);
+			name = ReverseExtension;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		88A132BF134826CB9A51218C3883ACD0 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6AFEA89CB3B7D857D45EEF3BD610AD53 /* LICENSE */,
+				9F9E7DB4C89C81242D28175C3BB2273A /* README.md */,
+				9D8590D1D3E0239BB302FC66926C52C5 /* ReverseExtension.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -179,15 +185,8 @@
 				519B7EAB4E01BCF24473CCA583F4BF44 /* Visualizer.swift */,
 				DFB0CE55F4773F877193FEFDC772A171 /* Support Files */,
 			);
+			name = TouchVisualizer;
 			path = TouchVisualizer;
-			sourceTree = "<group>";
-		};
-		9B8E1900CEE927D36BDD6F4CF047920D /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0E5DD957E33A85863734315C82334043 /* ReverseExtension */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		9D0D1170971D9E4F751A19E3F779601B /* Targets Support Files */ = {
@@ -219,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				9B8E1900CEE927D36BDD6F4CF047920D /* Development Pods */,
+				DF638A2BEDE8C7DE82497812F38B915B /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				D304583F58A1E124C9A44B22B23D3E83 /* Pods */,
 				726E825FA998EAFC993860974A9C48C5 /* Products */,
@@ -241,6 +240,14 @@
 				8E908A0CC02816690DBC1A2E8E72A33C /* TouchVisualizer */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF638A2BEDE8C7DE82497812F38B915B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77493DB439EE7117936307B6B05CA988 /* ReverseExtension */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		DFB0CE55F4773F877193FEFDC772A171 /* Support Files */ = {
@@ -277,12 +284,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83537981C7938D52CC95454119EC3B08 /* Headers */ = {
+		69E579893909889DB1E7C70997AB82C0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1A1E50A0930FDE1BAE9777370403B4 /* DelegateProxyBase.h in Headers */,
-				77AD90766928E6D706B58B6C8C9948B0 /* ReverseExtension-umbrella.h in Headers */,
+				D1D72A503609B45999DBA4611CC002E8 /* DelegateProxyBase.h in Headers */,
+				B4EEAB258410C66A3F192DD5AFC1A219 /* DenyDelegateMethod.h in Headers */,
+				5F4ED561DFFDB39BEB94B860420371DA /* ReverseExtension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,12 +299,12 @@
 /* Begin PBXNativeTarget section */
 		1D9DC60324F952EF1F7019E52E8F7F14 /* ReverseExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A980646683D1B065CE80864B1AFAC12B /* Build configuration list for PBXNativeTarget "ReverseExtension" */;
+			buildConfigurationList = 000F83B58C1957308E4840C516409B81 /* Build configuration list for PBXNativeTarget "ReverseExtension" */;
 			buildPhases = (
-				83537981C7938D52CC95454119EC3B08 /* Headers */,
-				47BC6EB03314760A24E940AFFDFC9397 /* Sources */,
-				A4540DB2549476CDDFF2EAC290484FF0 /* Frameworks */,
-				0B96FEB02AF026354FEA074FF8CE4BDC /* Resources */,
+				69E579893909889DB1E7C70997AB82C0 /* Headers */,
+				7EC2BA726F930BA811BAA3B9FCB44A00 /* Sources */,
+				3447B88DAA66A630654581748E773F94 /* Frameworks */,
+				A46BAD8EB839C70551C1723779AC1476 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -319,8 +327,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				B0BD0FD3906278327EFE42DA7A3D9912 /* PBXTargetDependency */,
-				F6F854AE95331CFDD31B588786518325 /* PBXTargetDependency */,
+				A91C345C0A1115C97A22BF5DED5F1A8E /* PBXTargetDependency */,
+				AEF17DC638BE133A20BDD82844C7FC75 /* PBXTargetDependency */,
 			);
 			name = "Pods-ReverseExtensionSample";
 			productName = "Pods-ReverseExtensionSample";
@@ -375,13 +383,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B96FEB02AF026354FEA074FF8CE4BDC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		65079EADD812C2B69059CB57CAE467BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,17 +397,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A46BAD8EB839C70551C1723779AC1476 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		47BC6EB03314760A24E940AFFDFC9397 /* Sources */ = {
+		7EC2BA726F930BA811BAA3B9FCB44A00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1432C12F1DA8D80944F00750BDF5045 /* DelegateProxyBase.m in Sources */,
-				32048EBCBD909D7F39E558624D5429D1 /* ReverseExtension-dummy.m in Sources */,
-				7115069E1930304EF8F631878FE595E2 /* ReverseExtension.swift in Sources */,
-				1E262E948FA341724D8AB7017A111B12 /* UITableViewDelegateProxy.swift in Sources */,
+				3191C71324C6F9CD1E65C6068300E92F /* DelegateProxyBase.m in Sources */,
+				B737E02AF3392F5A78F862DA2857EA8D /* DenyDelegateMethod.m in Sources */,
+				341E532EE03971BB8071B9CA962CF9B7 /* ReverseExtension-dummy.m in Sources */,
+				340E6FCA9BE6696A683935689A252235 /* ReverseExtension.swift in Sources */,
+				AFFD6AED5FBAF847027E4CCBD687A043 /* UITableViewDelegateProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,17 +442,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B0BD0FD3906278327EFE42DA7A3D9912 /* PBXTargetDependency */ = {
+		A91C345C0A1115C97A22BF5DED5F1A8E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReverseExtension;
 			target = 1D9DC60324F952EF1F7019E52E8F7F14 /* ReverseExtension */;
-			targetProxy = C09CB9D9EE6D2B3B04CE640FF03B2950 /* PBXContainerItemProxy */;
+			targetProxy = BCB5E3FA717A0F1F52EA25B7995C8630 /* PBXContainerItemProxy */;
 		};
-		F6F854AE95331CFDD31B588786518325 /* PBXTargetDependency */ = {
+		AEF17DC638BE133A20BDD82844C7FC75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TouchVisualizer;
 			target = F89A2D2E64741639216A7211115C72E2 /* TouchVisualizer */;
-			targetProxy = BF0BFD8F3551FAF69A33E3B92D889ACD /* PBXContainerItemProxy */;
+			targetProxy = AE9DA0845F8D0829B64D41AFBF0B7344 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -480,6 +489,37 @@
 			};
 			name = Debug;
 		};
+		023F66D767D66513321BA18D7C62546D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 542C54639B861874A3A265ECD80A293F /* ReverseExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/ReverseExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				PRODUCT_MODULE_NAME = ReverseExtension;
+				PRODUCT_NAME = ReverseExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		037933E5FC1519FACB5B3E0BE7DA69A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98295F7099A3CB1FAD76A1CAA20F0D2B /* Pods-ReverseExtensionSample.release.xcconfig */;
@@ -506,37 +546,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		06DF8B7C8DF2F5E1944B5B5BF59DF8EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F7081F696D01AE6E95553460303E0D4 /* ReverseExtension.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/ReverseExtension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
-				PRODUCT_MODULE_NAME = ReverseExtension;
-				PRODUCT_NAME = ReverseExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -610,6 +619,38 @@
 			};
 			name = Debug;
 		};
+		61F4BDEA93BF12FEA9AED1C60B546C33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E0469FD632B14F28D9FFC52F0507D3C /* ReverseExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/ReverseExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				PRODUCT_MODULE_NAME = ReverseExtension;
+				PRODUCT_NAME = ReverseExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		63A0FAC6C8B987D9EF990A19D2A7D952 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B16804D96F17CC5D527F30AC12441A6D /* TouchVisualizer.release.xcconfig */;
@@ -671,36 +712,6 @@
 			};
 			name = Debug;
 		};
-		BD73933F57664AEA08C91B2DC883C9F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5437E78D8851C8ADC1C936281BEF1905 /* ReverseExtension.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/ReverseExtension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
-				PRODUCT_MODULE_NAME = ReverseExtension;
-				PRODUCT_NAME = ReverseExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -756,7 +767,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -765,6 +777,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		000F83B58C1957308E4840C516409B81 /* Build configuration list for PBXNativeTarget "ReverseExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023F66D767D66513321BA18D7C62546D /* Debug */,
+				61F4BDEA93BF12FEA9AED1C60B546C33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3A95D75501FC09CD5A87D5F795524010 /* Build configuration list for PBXNativeTarget "Pods-ReverseExtensionSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -779,15 +800,6 @@
 			buildConfigurations = (
 				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
 				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A980646683D1B065CE80864B1AFAC12B /* Build configuration list for PBXNativeTarget "ReverseExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD73933F57664AEA08C91B2DC883C9F8 /* Debug */,
-				06DF8B7C8DF2F5E1944B5B5BF59DF8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 PODS:
-  - ReverseExtension (0.5.0)
+  - ReverseExtension (0.6.0)
   - TouchVisualizer (4.0.0)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ReverseExtension: e658309467ab80870648e32069d14b2ff4a09863
+  ReverseExtension: 5c7ca8c165f47e9bde8e26084d5e7bf21ad4f5a6
   TouchVisualizer: d342dc3a567b6dd289bc31b7ce8681302a93dfee
 
 PODFILE CHECKSUM: b8298876d13500af76d270fcdd0c8fad6d80316c
