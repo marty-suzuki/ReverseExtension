@@ -9,7 +9,10 @@
 import UIKit
 
 final class UITableViewDelegateProxy: DelegateProxyBase, UITableViewDelegate {
-    convenience init(delegates: [UITableViewDelegate]) {
-        self.init(__delegates: delegates)
+    convenience init(
+        delegates: [UITableViewDelegate],
+        denyList: [DenyDelegateMethod]
+    ) {
+        self.init(__delegates: delegates, denyList: denyList)
     }
 }
