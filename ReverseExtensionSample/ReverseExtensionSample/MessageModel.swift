@@ -29,7 +29,10 @@ struct MessageModel {
     let imageName: String
     let message: String
     let time: String
-    
+}
+
+extension MessageModel {
+
     init() {
         imageName = Const.imageNames[Int(arc4random_uniform(UInt32(Const.imageNames.count)))]
         message = Const.messags[Int(arc4random_uniform(UInt32(Const.messags.count)))]
