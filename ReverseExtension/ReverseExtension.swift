@@ -245,7 +245,7 @@ extension UITableView {
             let base = nonNilBase
             let section = max(0, max(0, (base.numberOfSections - 1)) - indexPath.section)
             let numberOfRowsInSection = base.numberOfRows(inSection: reversed ? section : indexPath.section)
-            let row = max(0, numberOfRowsInSection - 1 - indexPath.row)
+            let row = reversed ? max(0, numberOfRowsInSection - 1 - indexPath.row) : indexPath.row
             return IndexPath(row: row, section: section)
         }
         
@@ -412,6 +412,8 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             cell.contentView.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
+
+        delegate?.tableView?(tableView, willDisplay: cell, forRowAt: reversedIndexPath(with: indexPath))
     }
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -420,6 +422,8 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             view.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
+
+        delegate?.tableView?(tableView, willDisplayHeaderView: view, forSection: reversedSection(with: section))
     }
     
     public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
@@ -428,6 +432,30 @@ extension UITableView.ReverseExtension: UITableViewDelegate {
             view.transform = CGAffineTransform.identity.rotated(by: .pi)
             UIView.setAnimationsEnabled(true)
         }
+
+        delegate?.tableView?(tableView, willDisplayFooterView: view, forSection: reversedSection(with: section))
+    }
+
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        delegate?.tableView?(tableView, heightForHeaderInSection: reversedSection(with: section)) ?? .leastNonzeroMagnitude
+    }
+
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        delegate?.tableView?(tableView, heightForFooterInSection: reversedSection(with: section)) ?? .leastNonzeroMagnitude
+    }
+
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        delegate?.tableView?(tableView, editingStyleForRowAt: indexPath) ?? .delete
+    }
+
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        delegate?.tableView?(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
+    }
+
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        delegate?.tableView?(tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
     }
 }
 
@@ -456,7 +484,19 @@ extension UITableView.ReverseExtension: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return dataSource?.tableView?(tableView, titleForHeaderInSection: reversedSection(with: section))
     }
-    
+
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return delegate?.tableView?(tableView, viewForHeaderInSection: reversedSection(with: section))
+    }
+
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return delegate?.tableView?(tableView, viewForFooterInSection: reversedSection(with: section))
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.tableView?(tableView, didSelectRowAt: reversedIndexPath(with: indexPath))
+    }
+
     // Editing
     
     // Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.

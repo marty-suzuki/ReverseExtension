@@ -13,7 +13,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var messages: [MessageModel] = []
+    private var sections: [[MessageModel]] = (1...10)
+        .map { i -> [MessageModel] in
+            (0..<i)
+                .map {
+                    MessageModel(imageName: "marty1", message: "\($0) hello", time: "00:00")
+                }
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,27 +45,42 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let i = sections.count - 1
+        var messages = sections[i]
         messages.append(MessageModel())
+        sections[i] = messages
         tableView.beginUpdates()
-        tableView.re.insertRows(at: [IndexPath(row: messages.count - 1, section: 0)], with: .automatic)
+        tableView.re.insertRows(at: [IndexPath(row: messages.count - 1, section: i)], with: .automatic)
         tableView.endUpdates()
     }
     
     @IBAction func trashButtonTapped(_ sender: UIBarButtonItem) {
-        messages.removeAll()
+        sections.removeLast(max(0, sections.count - 1))
         tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        sections.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        sections[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let messages = sections[indexPath.section]
         (cell as? TableViewCell)?.configure(with: messages[indexPath.row])
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let messages = sections[indexPath.section]
+        let message = messages[indexPath.row]
+        print("willDisplay: \(message) at (section: \(indexPath.section), row: \(indexPath.row))")
     }
 }
 
