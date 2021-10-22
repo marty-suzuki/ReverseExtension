@@ -80,7 +80,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let messages = sections[indexPath.section]
         let message = messages[indexPath.row]
-        print("willDisplay: \(message)")
+        print("willDisplay: \(message) at (section: \(indexPath.section), row: \(indexPath.row))")
     }
 }
 
