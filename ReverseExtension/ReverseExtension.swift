@@ -245,7 +245,7 @@ extension UITableView {
             let base = nonNilBase
             let section = max(0, max(0, (base.numberOfSections - 1)) - indexPath.section)
             let numberOfRowsInSection = base.numberOfRows(inSection: reversed ? section : indexPath.section)
-            let row = max(0, numberOfRowsInSection - 1 - indexPath.row)
+            let row = reversed ? max(0, numberOfRowsInSection - 1 - indexPath.row) : indexPath.row
             return IndexPath(row: row, section: section)
         }
         
